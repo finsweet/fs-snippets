@@ -1,22 +1,19 @@
-const editorFriendlyLinkBlocks = (selectors: string) => {
-  function handleButtonLink(e: MouseEvent | KeyboardEvent) {
-    if (
-      !(e.target instanceof HTMLElement) ||
-      e.target instanceof HTMLAnchorElement ||
-      (e instanceof KeyboardEvent && !(e.key === 'Enter'))
-    )
-      return;
-    const target = e.target.closest(selectors);
-    if (!target) return;
+export default class EditorFriendlyLinkBlocks {
+  constructor(private selectors: string) {
+    // Handle accessibility
+    this.handleAccessibility();
 
-    e.preventDefault();
-    const anchorElement = target.querySelector<HTMLAnchorElement>('a');
-    if (anchorElement) anchorElement.click();
-    return false;
+    // Listen to events
+    window.addEventListener('click', () => {
+      this.handleTargets;
+    });
+    window.addEventListener('keydown', () => {
+      this.handleTargets;
+    });
   }
 
-  (function handleAccessibility() {
-    const buttons = document.querySelectorAll<HTMLElement>(selectors);
+  private handleAccessibility() {
+    const buttons = document.querySelectorAll<HTMLElement>(this.selectors);
     buttons.forEach((button) => {
       const anchorElement = button.querySelector<HTMLAnchorElement>('a');
       if (anchorElement && anchorElement.href) {
@@ -26,10 +23,21 @@ const editorFriendlyLinkBlocks = (selectors: string) => {
         if (anchorElement.textContent) button.setAttribute('aria-label', anchorElement.textContent);
       }
     });
-  })();
+  }
 
-  window.addEventListener('click', handleButtonLink);
-  window.addEventListener('keydown', handleButtonLink);
-};
+  private handleTargets(e: MouseEvent | KeyboardEvent) {
+    if (
+      !(e.target instanceof HTMLElement) ||
+      e.target instanceof HTMLAnchorElement ||
+      (e instanceof KeyboardEvent && !(e.key === 'Enter'))
+    )
+      return;
+    const target = e.target.closest(this.selectors);
+    if (!target) return;
 
-export default editorFriendlyLinkBlocks;
+    e.preventDefault();
+    const anchorElement = target.querySelector<HTMLAnchorElement>('a');
+    if (anchorElement) anchorElement.click();
+    return false;
+  }
+}

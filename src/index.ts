@@ -1,4 +1,4 @@
-import editorFriendlyLinkBlocks from './editor-friendly-link-blocks/index';
+import EditorFriendlyLinkBlocks from './editor-friendly-link-blocks/index';
 
 declare global {
   interface Window {
@@ -6,4 +6,4 @@ declare global {
   }
 }
 
-window.WebflowHacks = { editorFriendlyLinkBlocks };
+window.WebflowHacks = { EditorFriendlyLinkBlocks };
