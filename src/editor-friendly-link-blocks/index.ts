@@ -4,11 +4,11 @@ export default class EditorFriendlyLinkBlocks {
     this.handleAccessibility();
 
     // Listen to events
-    window.addEventListener('click', () => {
-      this.handleTargets;
+    window.addEventListener('click', (e) => {
+      this.handleTargets(e);
     });
-    window.addEventListener('keydown', () => {
-      this.handleTargets;
+    window.addEventListener('keydown', (e) => {
+      this.handleTargets(e);
     });
   }
 
