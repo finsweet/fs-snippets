@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/brotame/sweetjs#readme",
   "dependencies": {
+    "body-scroll-lock": "^3.1.5",
     "esbuild": "^0.8.36"
+  },
+  "devDependencies": {
+    "@types/body-scroll-lock": "^2.6.1"
   }
 }
