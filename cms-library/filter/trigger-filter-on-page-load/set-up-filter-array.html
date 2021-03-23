@@ -1,0 +1,23 @@
+<script>
+// In this example, we define 4 filter groups in an array and store it in a variable called myFilters
+var myFilters = [
+  {
+    filterWrapper: ".filter-bar-category",  // parent wrapper of filter group1
+    filterType: "exclusive"
+  },
+  {
+    filterWrapper: ".filter-bar-color",  // parent wrapper of filter group2
+    filterType: "multi",
+    filterByClass: ".color"  // class of the text that holds the filter info (optional)
+  },
+  {
+    filterWrapper: ".filter-bar-price",  // parent wrapper of filter group3
+    filterType: "multi",
+    filterRange: true  // filter by number range (optional)
+  },
+  {
+    filterWrapper: ".filter-bar-service",  // parent wrapper of filter group4
+    filterType: "multi"
+  }
+]
+</script>
