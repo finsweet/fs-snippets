@@ -1,0 +1,29 @@
+<!-- F'in sweet CMS Library for Webflow -->
+<script src="https://cdn.finsweet.com/files/cmslibrary-v1.8.js"></script>
+
+<script>
+// immediately/self invoked function. This function executes right away
+(function() {
+  // create a new Library instance and store it in a variable called "customBlogPosts"
+  var customBlogPosts = new FsLibrary('.blog-posts-list')
+
+  // define 2 class pairings in an array and store it in a variable called flipSection
+  var flipSection = [
+    {
+      classTarget: ".project-feature", // the base class on the element
+      classToAdd: ".flip-row" // the class you want to add to the element
+    },
+    {
+      classTarget: ".project-feature-image",
+      classToAdd: ".flip-image"
+    }
+  ]
+
+  // run the addclass Library component on your instance
+  customBlogPosts.addclasses({
+    classArray: flipSection, // variable of the array we created above
+    frequency: 3, // how often we add the classes in the Collection List
+    start: 1 // when we start adding the classes in the Collection List
+  })
+})();
+</script>
