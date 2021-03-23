@@ -1,0 +1,34 @@
+<!-- F'in sweet CMS Library for Webflow -->
+<script src="https://cdn.finsweet.com/files/cmslibrary-v1.8.js"></script>
+
+<script>
+// immediately/self invoked function. This function executes right away
+(function() {
+  // create a new Library instance and store it in a variable called "customBlogPosts"
+  var fsMagic = new FsLibrary('.blog-posts-list')
+
+  // run the loadmore Library component on your instance
+  fsMagic.loadmore({
+    button: ".load-more-button", // class of Webflow Pagination button
+    resetIx: true, // adds Webflow interactions to newly loaded items
+    loadAll: true, // loads ALL items in your collection load on the page. Required for pagination
+    paginate: {
+      enable: true,
+      itemsPerPage: 5,
+      insertPagination: '.pagination-container',
+      bgColor: '#FFFFFF',
+      bgColorActive: '#000000',
+      textColor: '#000000',
+      textColorActive: '#FFFFFF',
+      borderColor: '#000000'
+    },
+    animation: {
+      enable: true,
+      duration: .3,
+      easing: 'ease',
+      effects: 'fade'
+    }
+  })
+
+})();
+</script>
