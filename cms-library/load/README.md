@@ -4,7 +4,7 @@ Load items from your Collection List on the same page.
 
 **1. trigger-sort-on-page-load.html**
 
-Zendesk document.
+Zendesk document showing an example for sorting a cms list when page is loaded.
 
 **2. standard-implementation.html**
 

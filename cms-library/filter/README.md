@@ -13,4 +13,4 @@ Code defines filter groups in an array and store it in a variable called myFilte
 
 **3. complete-filter-function.html**
 
-Complete example-code for the filter functionality using the cms library.
+Complete example-code for the filter functionality of the cms library.
