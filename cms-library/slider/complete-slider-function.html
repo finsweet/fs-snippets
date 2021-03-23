@@ -1,0 +1,16 @@
+<!-- F'in sweet CMS Library for Webflow -->
+<script src="https://cdn.finsweet.com/files/cmslibrary-v1.8.js"></script>
+
+<script>
+// immediately/self invoked function. This function executes right away
+(function() {
+  // create a new Library instance and store it in a variable called "fsSlider"
+  var fsSlider = new FsLibrary('.fs-dynamic-feed')  // Class of your hidden CMS collection list
+
+  // run slider on our instance
+  fsSlider.slider({
+    sliderComponent: '.fs-slider',  // Webflow slider component
+    itemsPerSlide: 2  // amount of CMS items to show per Slide
+  })
+})();
+</script>
