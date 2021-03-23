@@ -1,0 +1,19 @@
+<!-- Add filter-by attribute to filter checkboxes loaded by CMS -->
+
+<script>
+
+    // Get the form elements containing the checkboxes
+    var formElements = document.querySelectorAll('.checkbox-form');
+    
+    // For each form element
+    for (el of formElements) {
+      // Get the filter-by-text text
+       var filterByTextElement = el.querySelector('.filter-by-text').innerText;
+    
+       // Get the checkbox element
+       var checkboxEl = el.querySelector('.checkbox-class');
+    
+       // set attribute to the checkbox element dynamically
+       checkboxEl.setAttribute('filter-by', filterByTextElement);
+    }
+</script>

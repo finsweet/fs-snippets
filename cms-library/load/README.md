@@ -18,3 +18,14 @@ Complete example-code for the load more functionality with pagination.
 **4. infinite-scroll.html**
 
 Complete example-code for the load more with infinite scroll.
+
+**5. scroll-after-loadmore.html**
+
+Scroll to the N-th element in the collection list after load more.
+
+**6. load-after-filter-sort.html**
+
+Load all items when a filter or sort button is clicked.
+
+
+

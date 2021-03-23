@@ -1,0 +1,18 @@
+<!-- Scroll to nth element in collection list after load more -->
+<script>
+    var elementToScrollTo = 0;
+    function scrollToEl() {
+    var items = document.querySelectorAll('.collection-list .collection-list-item');
+    
+    // elementToScrollTo is zero-based
+    // elementToScrollTo is the row number that you want to see into view after scroll
+    items[elementToScrollTo].scrollIntoView({
+       behavior: 'smooth',
+       block: 'start',
+       inline: 'nearest'
+    });
+    elementToScrollTo = elementToScrollTo + 2;
+    }
+    const loadMoreBtns = document.querySelector('.load-more-button');
+    loadMoreBtns.addEventListener('click', () => setTimeout(scrollToEl, 1000), false);
+</script>

@@ -1,0 +1,24 @@
+<!-- Scroll back to top after items have been filtered -->
+
+<script>
+    // Get all the filter buttons by class name
+    var filterButtons = document.querySelectorAll('.sort-button');
+    
+    // For each filter button
+    for (button of filterButtons) {
+    // When clicked trigger the scrollToElem function to scroll the page back to top
+        button.addEventListener('click', scrollToElem, false);
+    }
+    
+    // define the scrollToElem function
+    function scrollToElem() {
+            // scroll the browser page in an animation
+    $('html,body').animate({
+      // specify the element to scroll to
+        // specify the distance it will scroll to from the top of your element
+      scrollTop: $('.collection-list').offset().top - 80
+    
+        // specify the duration in milliseconds
+    }, 1000);
+    }
+    </script>

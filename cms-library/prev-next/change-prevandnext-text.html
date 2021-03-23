@@ -1,0 +1,47 @@
+<script>
+
+    function checkIfPaginationIsAdded(mutationsList, observer) {
+       for(const mutation of mutationsList) {
+           if(mutation.type === 'childList') {
+             if (mutation.target.classList.contains('pagination-container')) {
+              addChangeTextObserver();
+              // bodyObserver.disconnect();
+             }  
+           }
+       }
+    }
+    
+    function addChangeTextObserver() {
+    
+     // Select the node that will be observed for mutations
+     const targetNode = document.querySelector('.fs-pagination');
+    
+    // Options for the observer (which mutations to observe)
+     const config = { attributes: true, childList: true, subtree: false };
+    
+    // Create an observer instance linked to the callback function
+     const observer = new MutationObserver(changePrevNextText);
+    
+    // Start observing the target node for configured mutations
+     observer.observe(targetNode, config);  changePrevNextText;
+    }
+    
+    function changePrevNextText(mutationsList, observer) {    
+    
+       const prevBtn = document.querySelector('.fs-pagination-prev a');
+       const nextBtn = document.querySelector('.fs-pagination-next a');
+       if (prevBtn) {
+           prevBtn.innerText = 'changedPrevText';
+       }
+       if (nextBtn) {
+           nextBtn.innerText = 'changedNextText';
+       }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+       const body = document.querySelector('body');
+       const bodyMutationConfig = { attributes: true, childList: true, subtree: true };
+       const bodyObserver = new MutationObserver(checkIfPaginationIsAdded);
+       bodyObserver.observe(body, bodyMutationConfig);
+       })
+</script>

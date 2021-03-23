@@ -1,0 +1,21 @@
+<!-- Load All items when a filter or sort button is clicked -->
+
+<script>
+    const filterButtonsClass = '.filterBtnClass';
+    const loadMoreBtnClass = '.btn-load-more';
+    let filterButtons = document.querySelectorAll(filterButtonsClass);
+    filterButtons.forEach((button) => {
+     button.addEventListener('click', (event) => {
+        let loadMoreButton = document.querySelector(loadMoreBtnClass);
+        if (loadMoreButton) {
+          event.stopPropagation();
+          triggerLoadMoreUntilAllItemsLoad(loadMoreButton);
+        }   })
+    })
+    function triggerLoadMoreUntilAllItemsLoad(loadMoreBtn) {
+       if (loadMoreBtn) {
+           loadMoreBtn.click();
+           setTimeout(500, triggerLoadMoreUntilAllItemsLoad);
+       }
+    }
+</script>

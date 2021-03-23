@@ -1,0 +1,24 @@
+<!-- Counter For Filtered Items -->
+
+<script>
+    // Works best when animation duration is set to 0
+    function triggerCounter() {
+    // Get all elements in the CMS collection, store in a variable and convert to an array
+     var countVisible = document.querySelectorAll(".collection-list .collection-list-item:not([style='display: none;'])").length;
+    
+    // Get the element to update the number of items being displayed
+     var divEl = document.querySelector(".counter");
+    
+    // Updated the text of the element
+     divEl.innerHTML = `<div>There are <span class="filtered-items-number">${countVisible}</span> items showing on this list</div>`
+    }
+    
+    // On page load get the number of all items
+    window.addEventListener("DOMContentLoaded", triggerCounter, false);
+    
+    // Listen to DOM when it updates then trigger the counter function
+    var observer = new MutationObserver(triggerCounter);
+    var target = document.querySelector(".collection-list");
+    observer.observe(target, { attributes : true, childList: true, subtree: true, attributeFilter : ['style'] });
+    
+</script>

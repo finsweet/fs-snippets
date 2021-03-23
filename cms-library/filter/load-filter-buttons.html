@@ -1,0 +1,15 @@
+<!-- Add filter-by attribute to filter buttons loaded by CMS -->
+
+<script>
+       // Get values for each element with .filter-by-text class within the parent DOM       and store in a variable
+        var filterByTextElements = document.querySelectorAll('.filter-by-text');
+    
+      // For each filter by text element
+      for (element of filterByTextElements) {
+          // Get each element text and store in a variable
+      var elementText = element.innerText;
+    
+          // set attribute to the parent element dynamically
+          element.parentElement.setAttribute('filter-by', elementText);
+       }
+</script>

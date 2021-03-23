@@ -1,0 +1,10 @@
+<script>
+    function setScrollId() {
+       const fsContainer = document.querySelector('#wf-fslib-pagination');
+       fsContainer.querySelectorAll('li a').forEach(aEl => {
+           aEl.href = '#list-start'
+       })
+    }document.querySelector('.w-pagination-wrapper').addEventListener('DOMNodeInserted', (e) => {
+       setScrollId();
+    })
+</script>
