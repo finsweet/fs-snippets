@@ -4,4 +4,4 @@ Sort Items in a Collection List based on text content inside the Item
 
 **1. complete-sort-function.html**
 
-Sort Items in a Collection List based on text content inside the Item.
+Complete example-code for the sort functionality using the cms library.
