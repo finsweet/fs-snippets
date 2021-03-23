@@ -1,1 +1,0 @@
-# Zendesk Article filter docs.
