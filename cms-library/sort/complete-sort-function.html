@@ -1,0 +1,20 @@
+<!-- F'in sweet CMS Library for Webflow -->
+<script src="https://cdn.finsweet.com/files/cmslibrary-v1.8.js"></script>
+
+<script>
+// immediately/self invoked function. This function executes right away
+(function() {
+  // create a new Library instance and store it in a variable called "customBlogPosts"
+  var customBlogPosts = new FsLibrary('.blog-posts-list')
+
+  // run the sort Library component on your instance
+  customBlogPosts.sort({
+    sortTrigger: '.sort-button', // class of the button........
+    sortReverse: true, // if you want sort first click to be Z>A.......
+    activeClass: 'active', // class that styles the active state
+    animation: {
+      duration: 0,
+    }
+  })
+})();
+</script>
