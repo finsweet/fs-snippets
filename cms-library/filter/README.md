@@ -21,7 +21,7 @@ Pass filter parameters to a URL.
 
 **4. load-page-with-filterparams-preselected.html**
 
-load page with filters preselected. See no 4 above.
+load page with filters preselected. See *filter-url-params.html no(4)* above.
 
 **5. load-filter-buttons.html**
 

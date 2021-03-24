@@ -1,0 +1,80 @@
+[
+    {
+        "folder":"add-classes",
+        "id":"1",
+        "filename":"complete-class-function.html",
+        "description":"Complete example-code for the add class functionality using the cms library.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/add-classes/complete-class-function.html"
+    },
+    {
+        "folder":"add-classes",
+        "id":"2",
+        "filename":"setup-array.html",
+        "description":"Code uses an array to define class pairings for the add class functionality.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/add-classes/setup-array.html"
+    },
+    {
+        "folder":"filter",
+        "id":"3",
+        "filename":"complete-filter-function.html",
+        "description":"Complete example-code for the filter functionality of the cms library.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/complete-filter-function.html"
+    },
+    {
+        "folder":"filter",
+        "id":"4",
+        "filename":"first-page.html",
+        "description":"Zendesk doc showing a filter triggered on page load.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/first-page.html"
+    },
+    {
+        "folder":"filter",
+        "id":"5",
+        "filename":"filter-counter.html",
+        "description":"A counter for filtered items.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/filter-counter.html"
+    },
+    {
+        "folder":"filter",
+        "id":"6",
+        "filename":"filter-url-params.html",
+        "description":"Pass filter parameters to a URL.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/filter-url-params.html"
+    },
+    {
+        "folder":"filter",
+        "id":"7",
+        "filename":"load-filter-buttons.html",
+        "description":"Load filter buttons from a cms list.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/load-filter-buttons.html"
+    },
+    {
+        "folder":"filter",
+        "id":"8",
+        "filename":"load-filter-checkboxes.html",
+        "description":"Load filter check boxes from a cms list.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/load-filter-checkboxes.html"
+    },
+    {
+        "folder":"filter",
+        "id":"9",
+        "filename":"load-page-with-filterparams-preselected.html",
+        "description":"Load page with filters preselected. See filter url params for more info.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/load-page-with-filterparams-preselected.html"
+    },
+    {
+        "folder":"filter",
+        "id":"10",
+        "filename":"scroll-back-after-filter.html",
+        "description":"Scroll back to the top after items have been filtered",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/scroll-back-after-filter.html"
+    },
+    {
+        "folder":"filter",
+        "id":"11",
+        "filename":"set-up-filter-array.html",
+        "description":"Code defines filter groups in an array and store it in a variable called myFilters.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/set-up-filter-array.html"
+    }
+
+]

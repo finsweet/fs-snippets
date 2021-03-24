@@ -3,9 +3,9 @@
 
 Filter Items in a Collection List based on text content inside the Item. Snippets are descibed below:
 
-**1. set-up-array.html**
+**1. setup-array.html**
 
-Code defines  class pairings in an array.
+Code uses an array to define class pairings for the add class functionality.
 
 **2. complete-class-function.html**
 
