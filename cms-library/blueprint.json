@@ -75,6 +75,111 @@
         "filename":"set-up-filter-array.html",
         "description":"Code defines filter groups in an array and store it in a variable called myFilters.",
         "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/filter/set-up-filter-array.html"
+    },
+    {
+        "folder":"anchor",
+        "id":"12",
+        "filename":"complete-anchor-function.html",
+        "description":"Complete example-code for the anchor functionality for the cms library.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/anchor/complete-anchor-function.html"
+    },
+    {
+        "folder":"combine",
+        "id":"13",
+        "filename":"complete-combine-function.html",
+        "description":"Complete example-code for the combine functionality using the cms library.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/combine/complete-combine-function.html"
+    },
+    {
+        "folder":"load",
+        "id":"14",
+        "filename":"infinite-scroll.html",
+        "description":"Complete example-code for the load more with infinite scroll.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/load/infinite-scroll.html"
+    },
+    {
+        "folder":"load",
+        "id":"15",
+        "filename":"load-after-filter-sort.html",
+        "description":"Load all items when a filter or sort button is clicked.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/load/load-after-filter-sort.html"
+    },
+    {
+        "folder":"load",
+        "id":"16",
+        "filename":"pagination.html",
+        "description":"Complete example-code for the load more functionality with pagination.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/load/pagination.html"
+    },
+    {
+        "folder":"load",
+        "id":"17",
+        "filename":"scroll-after-loadmore.html",
+        "description":"Scroll to the N-th element in the collection list after load more.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/load/scroll-after-loadmore.html"
+    },
+    {
+        "folder":"load",
+        "id":"18",
+        "filename":"standard-implementation.html",
+        "description":"Complete example-code for the load more functionality using the cms library.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/load/standard-implementation.html"
+    },
+    {
+        "folder":"load",
+        "id":"19",
+        "filename":"trigger-sort-on-page-load.html",
+        "description":"Zendesk document showing an example for sorting a cms list when page is loaded.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/load/trigger-sort-on-page-load.html"
+    },
+    {
+        "folder":"nest",
+        "id":"20",
+        "filename":"complete-nested-function.html",
+        "description":"Complete example-code for the nested functionality using the cms library.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/nest/complete-nested-function.html"
+    },
+    {
+        "folder":"prev-next",
+        "id":"21",
+        "filename":"back-to-top-after-prevnext.html",
+        "description":"Scroll back to the top of the collection list when navigation to the next page on pagination.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/prev-next/back-to-top-after-prevnext.html"
+    },
+    {
+        "folder":"prev-next",
+        "id":"22",
+        "filename":"change-prevandnext-text.html",
+        "description":"Change 'prev' and 'next' text in the pagination buttons.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/prev-next/change-prevandnext-text.html"
+    },
+    {
+        "folder":"prev-next",
+        "id":"23",
+        "filename":"complete-prev-next-function.html",
+        "description":"Complete example-code for the previos - next functionality in a cms list using FsLibrary.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/prev-next/complete-prev-next-function.html"
+    },
+    {
+        "folder":"slider",
+        "id":"24",
+        "filename":"complete-slider-function.html",
+        "description":"Complete example-code for the slider functionality using the cms library.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/slider/complete-slider-function.html"
+    },
+    {
+        "folder":"sort",
+        "id":"25",
+        "filename":"complete-sort-function.html",
+        "description":"Complete example-code for the sort list functionality using the cms library.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/sort/complete-sort-function.html"
+    },
+    {
+        "folder":"tabs",
+        "id":"26",
+        "filename":"complete-tabs-function.html",
+        "description":"Complete example-code for the tabs functionality using the cms library.",
+        "github_raw_url":"https://raw.githubusercontent.com/finsweet/fs-snippets/main/cms-library/tabs/complete-tabs-function.html"
     }
 
 ]
