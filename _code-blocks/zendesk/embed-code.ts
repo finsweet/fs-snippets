@@ -1,12 +1,12 @@
-interface Window {
-  hljs: any;
-}
+import highlightJS from '../hljs';
+import { initCopyClipboard } from '@finsweet/webflow-addons';
+import { createCopyButton, populateCodeElement } from '../helpers';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Get all the <pre> elements
   const preElements = document.querySelectorAll('pre');
 
-  for (const preElement of preElements) {
+  for (const [index, preElement] of preElements.entries()) {
     // Get the script source
     const src = preElement.textContent;
     if (!src || !src.startsWith('http')) continue;
@@ -14,21 +14,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Clear element's content
     preElement.innerHTML = '';
 
-    try {
-      // Get the script as plain text
-      const response = await fetch(src);
-      const code = await response.text();
+    // Create inner elements
+    const codeElement = document.createElement('code');
+    const codeElementId = `hljs-code-${index}`;
+    codeElement.id = codeElementId;
+    preElement.appendChild(codeElement);
 
-      // Escape HTML characters
-      const escapedCode = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt');
+    // Populate the code element
+    await populateCodeElement(src, codeElement);
 
-      // Insert it in the element
-      preElement.innerHTML = `<code>${escapedCode}</code>`;
+    // Create the copy button
+    const copyButton = createCopyButton(codeElementId);
 
-      // Highlight the element
-      window.hljs.highlightBlock(preElement);
-    } catch (error) {
-      console.log(error);
-    }
+    // Append the copy button
+    preElement.appendChild(copyButton);
+
+    // Highlight the element
+    highlightJS.highlightBlock(preElement);
   }
+
+  initCopyClipboard();
 });
