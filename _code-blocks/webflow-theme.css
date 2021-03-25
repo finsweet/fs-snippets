@@ -1,5 +1,5 @@
 /* Highlight JS - Webflow Theme */
-.hljs {
+pre {
   display: block;
   position: relative;
   background-color: #404040;
@@ -11,21 +11,21 @@
   border-radius: 6px;
   margin: 0;
 }
-.hljs code {
+.hljs {
   display: block;
   overflow-x: auto;
   padding: 16px;
   background-color: #2b2b2b;
 }
-.hljs code::-webkit-scrollbar {
+.hljs::-webkit-scrollbar {
   height: 15px;
   background-color: transparent;
   border-top: 1px solid black;
 }
-.hljs code::-webkit-scrollbar-thumb {
+.hljs::-webkit-scrollbar-thumb {
   background-color: #4d4d4d;
 }
-.hljs code::-webkit-scrollbar-track {
+.hljs::-webkit-scrollbar-track {
   background-color: transparent;
 }
 .hljs-keyword {
