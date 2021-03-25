@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     preElement.appendChild(copyButton);
 
     // Highlight the element
-    highlightJS.highlightBlock(preElement);
+    highlightJS.highlightBlock(codeElement);
 
     // Append it to the embed
     embedElement.appendChild(preElement);
