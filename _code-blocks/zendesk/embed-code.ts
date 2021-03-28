@@ -1,6 +1,6 @@
-import highlightJS from '../hljs';
-import { initCopyClipboard } from '@finsweet/webflow-addons';
+import initCopyClipboard from '@finsweet/webflow-addons/copy-clipboard';
 import { createCopyButton, populateCodeElement } from '../helpers';
+import highlightJS from '../hljs';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Get all the <pre> elements
