@@ -31,3 +31,15 @@ export const createCopyButton = (id: string) => {
 
   return copyButton;
 };
+
+/**
+ *
+ * @param title
+ * @returns
+ */
+export const createTitleElement = (title: string): HTMLDivElement => {
+  const titleElement = document.createElement('div');
+  titleElement.classList.add('codeTitle');
+  titleElement.textContent = title;
+  return titleElement;
+};
