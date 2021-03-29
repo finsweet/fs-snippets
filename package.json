@@ -25,12 +25,12 @@
   "homepage": "https://github.com/finsweet/sweetjs#readme",
   "devDependencies": {
     "@types/highlightjs": "^10.1.0",
-    "esbuild": "^0.10.2",
+    "esbuild": "^0.11.0",
     "prettier": "^2.2.1",
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "@finsweet/webflow-addons": "^1.0.7",
+    "@finsweet/webflow-addons": "^1.0.8",
     "highlight.js": "^10.7.1"
   }
 }
