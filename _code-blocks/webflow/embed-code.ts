@@ -1,5 +1,5 @@
-import initCopyClipboard from '@finsweet/webflow-addons/copy-clipboard';
 import { createCopyButton, createTitleElement, populateCodeElement } from '../helpers';
+import initCopyClipboard from '@finsweet/webflow-addons/copy-clipboard';
 import highlightJS from '../hljs';
 
 document.addEventListener('DOMContentLoaded', async () => {
