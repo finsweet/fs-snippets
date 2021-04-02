@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const embedElements = document.querySelectorAll<HTMLDivElement>('.w-embed');
 
   for (const [index, embedElement] of embedElements.entries()) {
-    // Get the script source and the title if exists
+    // Get the script source and the title if exist
     let src = embedElement.textContent;
-    const titleRegex = /^\[(.*?)\]/g; // TODO REVISAR
 
-    if (!src || (!src.startsWith('http') && !titleRegex.test(src))) continue; // TODO REVISAR  && !titleRegex.test(src)
+    const titleRegex = /\[(.*)\]/;
+
+    if (!src || (!src.startsWith('http') && !titleRegex.test(src))) continue;
 
     // Clear element's content
     embedElement.innerHTML = '';
@@ -24,17 +25,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     preElement.appendChild(codeElement);
 
     // Get the title
-    const titleMatch = titleRegex.exec(src); // TODO REVISAR
+    const titleMatch = titleRegex.exec(src);
 
-    console.log({ src, titleMatch }); // TODO REVISAR
-    // TODO REVISAR
     if (titleMatch) {
-      const [brackedTitle, title] = titleMatch; // TODO REVISAR
-      src = src.replace(brackedTitle, ''); // TODO REVISAR
+      // Retrieve the title and sanitize the source URL
+      const [brackedTitle, title] = titleMatch;
+      src = src.replace(brackedTitle, '');
 
-      const titleElement = createTitleElement(title); // TODO REVISAR
-      preElement.appendChild(titleElement); // TODO REVISAR
-    } // TODO REVISAR
+      const titleElement = createTitleElement(title);
+      preElement.appendChild(titleElement);
+    }
 
     // Populate the code element
     await populateCodeElement(src, codeElement);
