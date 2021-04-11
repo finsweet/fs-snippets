@@ -194,11 +194,12 @@ pre {
   top: 16px;
   right: auto;
   bottom: auto;
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   font-family: monospace;
-  font-size: 18px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ff7f27;
   line-height: 1.25;
 }
