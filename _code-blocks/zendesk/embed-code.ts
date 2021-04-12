@@ -1,5 +1,5 @@
+import { createCopyButton, createTitleElement, populateCodeElement } from '../helpers';
 import initCopyClipboard from '@finsweet/webflow-addons/copy-clipboard';
-import { createCopyButton, populateCodeElement } from '../helpers';
 import highlightJS from '../hljs';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   for (const [index, preElement] of preElements.entries()) {
     // Get the script source
-    const src = preElement.textContent;
-    if (!src || !src.startsWith('http')) continue;
+    let src = preElement.textContent;
+    const titleRegex = /\[(.*)\]/;
+
+    if (!src || (!src.startsWith('http') && !titleRegex.test(src))) continue;
 
     // Clear element's content
     preElement.innerHTML = '';
@@ -19,6 +21,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     const codeElementId = `hljs-code-${index}`;
     codeElement.id = codeElementId;
     preElement.appendChild(codeElement);
+
+    // Get the title
+    const titleMatch = titleRegex.exec(src);
+
+    if (titleMatch) {
+      // Retrieve the title and sanitize the source URL
+      const [brackedTitle, title] = titleMatch;
+      src = src.replace(brackedTitle, '');
+
+      const titleElement = createTitleElement(title);
+      preElement.appendChild(titleElement);
+    }
 
     // Populate the code element
     await populateCodeElement(src, codeElement);
