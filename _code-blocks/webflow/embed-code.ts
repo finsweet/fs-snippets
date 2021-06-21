@@ -1,4 +1,4 @@
-import { createCopyButton, createTitleElement, populateCodeElement } from '../helpers';
+import { createCopyButton, createDivElement, populateCodeElement } from '../helpers';
 import initCopyClipboard from '@finsweet/webflow-addons/copy-clipboard';
 import highlightJS from '../hljs';
 
@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const codeElement = document.createElement('code');
     const codeElementId = `hljs-code-${index}`;
     codeElement.id = codeElementId;
+    const snippetHeader = createDivElement('snippetHeader');
+
+    preElement.appendChild(snippetHeader);
     preElement.appendChild(codeElement);
 
     // Get the title
@@ -32,8 +35,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       const [brackedTitle, title] = titleMatch;
       src = src.replace(brackedTitle, '');
 
-      const titleElement = createTitleElement(title);
-      preElement.appendChild(titleElement);
+      const titleElement = createDivElement('codeTitle', title);
+      snippetHeader.appendChild(titleElement);
     }
 
     // Populate the code element
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const copyButton = createCopyButton(codeElementId);
 
     // Append the copy button
-    preElement.appendChild(copyButton);
+    snippetHeader.appendChild(copyButton);
 
     // Highlight the element
     highlightJS.highlightBlock(codeElement);

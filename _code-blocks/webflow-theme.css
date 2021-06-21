@@ -8,7 +8,7 @@ pre {
   font-weight: 400;
   max-width: 600px;
   font-size: 14px;
-  padding: 74px 16px 16px;
+  padding: 16px 16px 16px;
   border-radius: 6px;
   margin: 0;
 }
@@ -160,13 +160,16 @@ pre {
   font-style: italic;
 }
 
+/* Header */
+.snippetHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
 /* Copy Button */
 .copyCodeBtn {
-  position: absolute;
-  left: auto;
-  top: 16px;
-  right: 16px;
-  bottom: auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -193,17 +196,9 @@ pre {
 
 /* Code Title */
 .codeTitle {
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  right: auto;
-  bottom: auto;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   font-family: Inter, -apple-system, system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
     Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-  font-size: 25px;
+  font-size: 16px;
   font-weight: normal;
   color: #d9d9d9;
   line-height: 1.25;

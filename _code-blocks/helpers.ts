@@ -37,9 +37,10 @@ export const createCopyButton = (id: string) => {
  * @param title
  * @returns
  */
-export const createTitleElement = (title: string): HTMLDivElement => {
+export const createDivElement = (className: string, title?: string): HTMLDivElement => {
   const titleElement = document.createElement('div');
-  titleElement.classList.add('codeTitle');
-  titleElement.textContent = title;
+  titleElement.classList.add(className);
+  if (title) titleElement.textContent = title;
+
   return titleElement;
 };
