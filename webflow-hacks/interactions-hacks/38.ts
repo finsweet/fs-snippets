@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.onsubmit = triggerSuccessTrigger
     }
       // click our div trigger to run our Webflow Interaction
-      const triggerSuccessTrigger = () => {
+    const triggerSuccessTrigger = () => {
         successTrigger.click()
     }
     
