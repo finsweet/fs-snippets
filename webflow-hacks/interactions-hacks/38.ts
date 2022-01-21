@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // click our div trigger to run our Webflow Interaction
       const triggerSuccessTrigger = () => {
         successTrigger.click()
-    
     }
     
     window.onload = submitEvent;
