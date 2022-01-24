@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementsByClassName('hack38-form')[0];
-    const successTrigger = document.getElementsByClassName('hack38-form-success-trigger')[0];
-    ;
-    const submitEvent = () => {
-        form.onsubmit = triggerSuccessTrigger;
-    };
-    const triggerSuccessTrigger = () => {
-        successTrigger.click();
-    };
-    window.onload = submitEvent;
+  const form = document.querySelector('hack38-form');
+  const successTrigger = document.querySelector('hack38-form-success-trigger');
+  if (!form || !successTrigger) return;
+  const submitEvent = () => {
+    form.onsubmit = triggerSuccess;
+  };
+  const triggerSuccess = () => {
+    successTrigger.click();
+  };
+  window.onload = submitEvent;
 });
