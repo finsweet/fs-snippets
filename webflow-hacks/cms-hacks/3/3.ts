@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const jobsCounter = document.querySelectorAll('.cms-jobs-counter').length;
 
   // select the element with class ".hack3-jobs-amount"
-  const jobsCount: HTMLElement = document.querySelector('.hack3-jobs-amount') as HTMLElement;
-
+  const jobsCount = document.querySelector<HTMLElement>('.hack3-jobs-amount');
+  if (!jobsCount) return;
   // set the jobsCount textContent to the value of jobsCounter
   jobsCount.innerHTML = jobsCounter.toString();
 });
