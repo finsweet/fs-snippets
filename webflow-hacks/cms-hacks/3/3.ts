@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // get the amount (length) of elements with data attribute[fs-hacks-element="CMS_JOBS_COUNTER"]
+  // get the amount (length) of elements with data attribute[fs-hacks-element="cms-jobs-counter"]
   // and assign that amount to a constant named jobsCounter
-  const jobsCounter = document.querySelectorAll('[fs-hacks-element="CMS_JOBS_COUNTER"]').length;
+  const jobsCounter = document.querySelectorAll('[fs-hacks-element="cms-jobs-counter"]').length;
 
-  // select the element with data attribute [fs-hacks-element="HACK3_JOB_COUNT"]
-  const jobCount = document.querySelector<HTMLElement>('[fs-hacks-element="HACK3_JOB_COUNT"]');
+  // select the element with data attribute [fs-hacks-element="hack3-job-count"]
+  const jobCount = document.querySelector<HTMLElement>('[fs-hacks-element="hack3-job-count"]');
 
   if (!jobCount) return;
   // set the jobsCount textContent to the value of jobsCounter
