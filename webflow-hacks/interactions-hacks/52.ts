@@ -1,31 +1,33 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
-	// get a reference to the page wrapper
-	const pageWrapper: HTMLElement = document.querySelector(".page-wrapper") as HTMLElement;
-	// get a reference to the loading wrapper
-	const loadingWrapper: HTMLElement = document.querySelector('.hack52-loading-wrapper') as HTMLElement;
-	// get the 'seenAnimation' item from session storage and store in a seenAnimation variable
+document.addEventListener('DOMContentLoaded', function (event) {
+  // get a reference to the page wrapper
+  const pageWrapper = document.querySelector<HTMLElement>('.page-wrapper');
+  if (!pageWrapper) return;
+
+  // get a reference to the loading wrapper
+  const loadingWrapper = document.querySelector<HTMLElement>('.hack52-loading-wrapper');
+  if (!loadingWrapper) return;
+  // get the 'seenAnimation' item from session storage and store in a seenAnimation variable
   const seenAnimation = sessionStorage.getItem('seenAnimation');
   // if the 'seenAnimation' item is undefined
-	if(!seenAnimation){
-    // display the loading-wrapper 
-    loadingWrapper.style.display = "flex";
-    // show the page-wrapper 
+  if (!seenAnimation) {
+    // display the loading-wrapper
+    loadingWrapper.style.display = 'flex';
+    // show the page-wrapper
     // after a set duration of 3000 milliseconds
     // (the time it takes to show the loading-wrapper in this case)
-    setTimeout(()=>{
-      loadingWrapper.style.visibility = "hidden";
-			pageWrapper.style.display = "block";
-		}, 3000);
-    // set the 'seenAnimation' item to the session storage 
+    setTimeout(() => {
+      loadingWrapper.style.visibility = 'hidden';
+      pageWrapper.style.display = 'block';
+    }, 3000);
+    // set the 'seenAnimation' item to the session storage
     sessionStorage.setItem('seenAnimation', '1');
-	}
-  else{
-  	// else if the 'seenAnimation' item exists
+  } else {
+    // else if the 'seenAnimation' item exists
     // the user has already seen the animation
     // and so
     // hide the loading-wrapper
-    loadingWrapper.style.visibility = "hidden";
-    // show the page-wrapper 
-    pageWrapper.style.display = "block";
+    loadingWrapper.style.visibility = 'hidden';
+    // show the page-wrapper
+    pageWrapper.style.display = 'block';
   }
 });
