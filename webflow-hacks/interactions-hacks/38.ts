@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   // assign form HTML element to variable form
-  const form = document.querySelector<HTMLElement>('.hack38-form');
+  const form = document.querySelector<HTMLElement>('[fs-hacks-element="hack38-form"]');
   // assign success trigger HTML element to variable successTrigger
-  const successTrigger = document.querySelector<HTMLElement>('.hack38-form-success-trigger');
+  const successTrigger = document.querySelector<HTMLElement>('[fs-hacks-element="hack38-form-success-trigger"]');
 
   if (!form || !successTrigger) return;
 
