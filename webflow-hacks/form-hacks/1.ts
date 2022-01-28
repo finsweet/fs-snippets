@@ -28,14 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
       successText.innerText = `Thank you! We'll focus on ${customSuccessMessage} for future F'in sweet Webflow Hacks!`;
       // then submit the form
       return true;
-    } else {
-      // else if no option was selected
-      event.stopPropagation();
-      // prevent the form from submitting
-      // focus on the select field
-      interestSelectField.focus();
-      // stop form submission
-      return false;
     }
+    event.stopPropagation();
+    // prevent the form from submitting
+    // focus on the select field
+    interestSelectField.focus();
+    // stop form submission
+    return false;
   });
 });
