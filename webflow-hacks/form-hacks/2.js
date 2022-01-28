@@ -1,6 +1,5 @@
-"use strict";
-exports.__esModule = true;
-var js_cookie_1 = require("js-cookie");
+// not needed if using cdn
+// import Cookies from 'js-cookie';
 // when the DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
     // store a reference to the select field in the interestSelectField variable
@@ -25,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // if the user selected an option on the select field
         if (customSuccessMessage.trim() !== '') {
             // save the customSuccessMessage's value in a cookie
-            js_cookie_1["default"].set('successTextCookie', customSuccessMessage);
+            Cookies.set('successTextCookie', customSuccessMessage);
             // then we submit the form
             return true;
         }

@@ -25,6 +25,7 @@
   "homepage": "https://github.com/finsweet/sweetjs#readme",
   "devDependencies": {
     "@types/highlightjs": "^10.1.0",
+    "@types/js-cookie": "^3.0.1",
     "esbuild": "^0.14.0",
     "prettier": "^2.2.1",
     "typescript": "^4.2.3"
