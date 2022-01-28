@@ -1,7 +1,7 @@
 // when the DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
   // declare constants
-  const CLASS_NAME = 'hack4-active';
+  const ACTIVE_CLASS = 'hack4-active';
   // declare the dom elements
   const filterLinks = document.querySelectorAll<HTMLAnchorElement>('[fs-hacks-element="hack4-filter-button"]');
   const sections = document.querySelectorAll<HTMLDivElement>('[fs-hacks-element="hack4-cms-anchor-section"]');
@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
           // for each link
           filterLinks.forEach((link) => {
             // remove the active class from the current active link
-            link.classList.remove(CLASS_NAME);
+            link.classList.remove(ACTIVE_CLASS);
             // check if current active link href is the target
             if (link.href === `#${target.id}`) {
               // add the active class to the current active link
-              link.classList.add(CLASS_NAME);
+              link.classList.add(ACTIVE_CLASS);
             }
           });
         }
