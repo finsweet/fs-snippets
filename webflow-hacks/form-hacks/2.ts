@@ -1,4 +1,5 @@
-import Cookies from 'js-cookie';
+// not needed if using cdn
+// import Cookies from 'js-cookie';
 
 // when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
