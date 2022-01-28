@@ -1,11 +1,15 @@
 // when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+  // declare selectors
+  const SELECT_FIELD_SELECTOR = '[fs-hacks-element="interest-select-field"]';
+  const EMAIL_SELECTOR = '[fs-hacks-element="email-form"]';
+  const SUCCESS_TEXT_SELECTOR = '[fs-hacks-element="success-text"]';
   // Get the select field.
-  const interestSelectField = document.querySelector<HTMLSelectElement>('#interest-select-field');
+  const interestSelectField = document.querySelector<HTMLSelectElement>(SELECT_FIELD_SELECTOR);
   // get the email-Form element.
-  const emailForm = document.querySelector<HTMLFormElement>('#email-form');
+  const emailForm = document.querySelector<HTMLFormElement>(EMAIL_SELECTOR);
   // get the success-text element.
-  const successText = document.querySelector<HTMLDivElement>('.insert-success-text');
+  const successText = document.querySelector<HTMLDivElement>(SUCCESS_TEXT_SELECTOR);
 
   if (!interestSelectField || !emailForm || !successText) {
     return;
