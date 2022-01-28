@@ -1,5 +1,7 @@
 // when the DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
+  // declare constants
+  const CLASS_NAME = 'hack4-active';
   // declare the dom elements
   const filterLinks = document.querySelectorAll<HTMLAnchorElement>('[fs-hacks-element="hack4-filter-button"]');
   const sections = document.querySelectorAll<HTMLDivElement>('[fs-hacks-element="hack4-cms-anchor-section"]');
@@ -20,20 +22,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // set up intersection observer to observe when the anchor sections are in the viewport
-  let observer = new IntersectionObserver(
-    (entries, observer) => {
+  const observer = new IntersectionObserver(
+    (entries) => {
       // for each anchor section
-      entries.forEach((entry) => {
+      entries.forEach(({ isIntersecting, target }) => {
         // if it's in the viewport
-        if (entry.isIntersecting) {
+        if (isIntersecting) {
           // for each link
           filterLinks.forEach((link) => {
             // remove the active class from the current active link
-            link.classList.remove('hack4-active');
+            link.classList.remove(CLASS_NAME);
             // check if current active link href is the target
-            if (link.href === `#${entry.target.id}`) {
+            if (link.href === `#${target.id}`) {
               // add the active class to the current active link
-              link.classList.add('hack4-active');
+              link.classList.add(CLASS_NAME);
             }
           });
         }
