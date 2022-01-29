@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node .\\build.js",
-    "build:hacks": "eslint webflow-hacks && tsc && prettier --write webflow-hacks"
+    "build:hacks": "tsc && prettier --write webflow-hacks && eslint webflow-hacks"
   },
   "repository": {
     "type": "git",
