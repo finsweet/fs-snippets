@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // for each filter Link
   filterLinks.forEach((link, index) => {
     // get its text content and reformat to a valid ID
-    let linkText = link.innerText.replace(/\W/g, '-').toLowerCase();
+    const linkText = link.innerText.replace(/\W/g, '-').toLowerCase();
     // set the reformatted linkText as the link href attribute
     link.setAttribute('href', '#' + linkText);
     // set the section is to linkText
