@@ -1,12 +1,12 @@
-// not needed if using cdn
-// import Cookies from 'js-cookie';
-
 // when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+  // declare constants for selectors
+  const INTEREST_FIELD_SELECTOR = '[fs-hacks-element="interest-select-field"]';
+  const EMAIL_FORM_SELECTOR = '[fs-hacks-element="email-form"]';
   // store a reference to the select field in the interestSelectField variable
-  const interestSelectField = document.querySelector<HTMLSelectElement>('[fs-hacks-element="interest-select-field"]');
+  const interestSelectField = document.querySelector<HTMLSelectElement>(INTEREST_FIELD_SELECTOR);
   // store a reference to the email form in the emailForm variable
-  const emailForm = document.querySelector('[fs-hacks-element="email-form"]');
+  const emailForm = document.querySelector(EMAIL_FORM_SELECTOR);
 
   // if the declared elements do not exist, quit
   if (!interestSelectField || !emailForm) {
@@ -30,14 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
       Cookies.set('successTextCookie', customSuccessMessage);
       // then we submit the form
       return true;
-    } else {
-      // otherwise, prevent propagation of the event
-      e.stopPropagation();
-      // else if no option was selected
-      // focus on the select field
-      interestSelectField.focus();
-      // prevent form submission
-      return false;
     }
+    // otherwise, prevent propagation of the event
+    e.stopPropagation();
+    // else if no option was selected
+    // focus on the select field
+    interestSelectField.focus();
+    // prevent form submission
+    return false;
   });
 });
