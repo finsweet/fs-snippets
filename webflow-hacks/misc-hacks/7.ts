@@ -1,12 +1,13 @@
-
 // when the DOM is ready
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener('DOMContentLoaded', function () {
   /* get a reference to the link element
   with a rel attribute of icon and store it in the variable link or 
   if the link does not exist, create a link element
   and store it in the variable link*/
-  const link = document.querySelector<HTMLAnchorElement>("link[rel*='icon']") || document.createElement('link');
-  // set the link type attribute 
+  // add selector constant
+  const LINK_SELECTOR = "[fs-hacks-element='link-icon']";
+  const link = document.querySelector<HTMLAnchorElement>(LINK_SELECTOR) || document.createElement('link');
+  // set the link type attribute
   link.type = 'image/x-icon';
   // set the link rel attribute
   link.rel = 'shortcut icon';
