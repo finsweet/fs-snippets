@@ -27,12 +27,8 @@
   "devDependencies": {
     "@finsweet/eslint-config": "^1.1.3",
     "@types/highlightjs": "^10.1.0",
-<<<<<<< HEAD
-    "@types/js-cookie": "^3.0.1",
-=======
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
->>>>>>> 32d20c833b2a02d37e56517ed5e98a2fd6b829a1
     "esbuild": "^0.14.0",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
@@ -42,6 +38,7 @@
   },
   "dependencies": {
     "@finsweet/webflow-addons": "^1.0.8",
+    "@types/js-cookie": "^3.0.1",
     "highlight.js": "^10.7.1"
   }
 }
