@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     with a rel attribute of icon and store it in the variable link or
     if the link does not exist, create a link element
     and store it in the variable link*/
-  // add selctor constant
+  // add selector constant
   const LINK_SELECTOR = "[fs-hacks-element='link-icon']";
   const link = document.querySelector(LINK_SELECTOR) || document.createElement('link');
   // set the link type attribute
