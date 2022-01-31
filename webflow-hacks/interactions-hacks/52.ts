@@ -1,10 +1,14 @@
 document.addEventListener('DOMContentLoaded', function (event) {
+  const PAGE_WRAPPER_SELECTOR = '[fs-hacks-element="page-wrapper"]';
+  const LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="hack52-loading-wrapper"]';
+
   // get a reference to the page wrapper
-  const pageWrapper = document.querySelector<HTMLElement>('[fs-hacks-element="page-wrapper"]');
+  const pageWrapper = document.querySelector<HTMLElement>(PAGE_WRAPPER_SELECTOR);
+
   if (!pageWrapper) return;
 
   // get a reference to the loading wrapper
-  const loadingWrapper = document.querySelector<HTMLElement>('[fs-hacks-element="hack52-loading-wrapper"]');
+  const loadingWrapper = document.querySelector<HTMLElement>(LOADING_WRAPPER_SELECTOR);
   if (!loadingWrapper) return;
   // get the 'seenAnimation' item from session storage and store in a seenAnimation variable
   const seenAnimation = sessionStorage.getItem('seenAnimation');

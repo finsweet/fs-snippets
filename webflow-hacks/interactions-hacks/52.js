@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function (event) {
+  var PAGE_WRAPPER_SELECTOR = '[fs-hacks-element="page-wrapper"]';
+  var LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="hack52-loading-wrapper"]';
   // get a reference to the page wrapper
-  var pageWrapper = document.querySelector('[fs-hacks-element="page-wrapper"]');
+  var pageWrapper = document.querySelector(PAGE_WRAPPER_SELECTOR);
   if (!pageWrapper) return;
   // get a reference to the loading wrapper
-  var loadingWrapper = document.querySelector('[fs-hacks-element="hack52-loading-wrapper"]');
+  var loadingWrapper = document.querySelector(LOADING_WRAPPER_SELECTOR);
   if (!loadingWrapper) return;
   // get the 'seenAnimation' item from session storage and store in a seenAnimation variable
   var seenAnimation = sessionStorage.getItem('seenAnimation');
