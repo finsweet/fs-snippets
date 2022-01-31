@@ -2,15 +2,18 @@
 // import * as Cookies from 'js-cookie';
 
 document.addEventListener('DOMContentLoaded', function (event) {
+  const PAGE_WRAPPER_SELECTOR = '[fs-hacks-element="page-wrapper"]';
+  const LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="hack10-loading-wrapper"]';
+
   // get a reference to the page wrapper
-  const pageWrapper = document.querySelector<HTMLElement>('[fs-hacks-element="page-wrapper"]');
+  const pageWrapper = document.querySelector<HTMLElement>(PAGE_WRAPPER_SELECTOR);
   /*The page-wrapper is initially hidden*/
   if (!pageWrapper) return;
 
   pageWrapper.style.display = 'none';
 
   // get a reference to the loading wrapper
-  const loadingWrapper = document.querySelector<HTMLElement>('[fs-hacks-element="hack10-loading-wrapper"]');
+  const loadingWrapper = document.querySelector<HTMLElement>(LOADING_WRAPPER_SELECTOR);
 
   if (!loadingWrapper) return;
   // get the 'seenAnimation' cookie and store in a seenAnimation variable
@@ -39,7 +42,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   //This is for the "Clear my 24 hour cookie" button on this Hacks template
   // this is not needed on your live site
-  const clearCookiesButton = document.querySelector<HTMLElement>('[fs-hacks-element="clear-cookie"]');
+  const CLEAR_COOKIES_BUTTON_SELECTOR = '[fs-hacks-element="clear-cookie"]';
+  const clearCookiesButton = document.querySelector<HTMLElement>(CLEAR_COOKIES_BUTTON_SELECTOR);
 
   if (!clearCookiesButton) return;
   // when  clearCookiesButton is clicked
