@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const FORM_SELECTOR = '[fs-hacks-element="hack38-form"]';
+  const SUCCESS_TRIGGER_SELECTOR = '[fs-hacks-element="hack38-form-success-trigger"]';
+
   // assign form HTML element to variable form
-  const form = document.querySelector<HTMLElement>('[fs-hacks-element="hack38-form"]');
+  const form = document.querySelector<HTMLElement>(FORM_SELECTOR);
   // assign success trigger HTML element to variable successTrigger
-  const successTrigger = document.querySelector<HTMLElement>('[fs-hacks-element="hack38-form-success-trigger"]');
+  const successTrigger = document.querySelector<HTMLElement>(SUCCESS_TRIGGER_SELECTOR);
 
   if (!form || !successTrigger) return;
 
