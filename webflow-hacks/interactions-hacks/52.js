@@ -1,14 +1,15 @@
-document.addEventListener('DOMContentLoaded', function (event) {
-  var PAGE_WRAPPER_SELECTOR = '[fs-hacks-element="page-wrapper"]';
-  var LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="hack52-loading-wrapper"]';
+'use strict';
+document.addEventListener('DOMContentLoaded', function () {
+  const PAGE_WRAPPER_SELECTOR = '[fs-hacks-element="page-wrapper"]';
+  const LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="hack52-loading-wrapper"]';
   // get a reference to the page wrapper
-  var pageWrapper = document.querySelector(PAGE_WRAPPER_SELECTOR);
+  const pageWrapper = document.querySelector(PAGE_WRAPPER_SELECTOR);
   if (!pageWrapper) return;
   // get a reference to the loading wrapper
-  var loadingWrapper = document.querySelector(LOADING_WRAPPER_SELECTOR);
+  const loadingWrapper = document.querySelector(LOADING_WRAPPER_SELECTOR);
   if (!loadingWrapper) return;
   // get the 'seenAnimation' item from session storage and store in a seenAnimation variable
-  var seenAnimation = sessionStorage.getItem('seenAnimation');
+  const seenAnimation = sessionStorage.getItem('seenAnimation');
   // if the 'seenAnimation' item is undefined
   if (!seenAnimation) {
     // display the loading-wrapper
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     // show the page-wrapper
     // after a set duration of 3000 milliseconds
     // (the time it takes to show the loading-wrapper in this case)
-    setTimeout(function () {
+    setTimeout(() => {
       loadingWrapper.style.visibility = 'hidden';
       pageWrapper.style.display = 'block';
     }, 3000);

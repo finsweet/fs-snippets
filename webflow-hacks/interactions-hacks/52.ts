@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', function () {
   const PAGE_WRAPPER_SELECTOR = '[fs-hacks-element="page-wrapper"]';
   const LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="hack52-loading-wrapper"]';
 
