@@ -1,7 +1,7 @@
 // not needed if using cdn
 // import * as Cookies from 'js-cookie';
 
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', function () {
   const PAGE_WRAPPER_SELECTOR = '[fs-hacks-element="page-wrapper"]';
   const LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="hack10-loading-wrapper"]';
 

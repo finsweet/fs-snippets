@@ -1,18 +1,19 @@
+'use strict';
 // not needed if using cdn
 // import * as Cookies from 'js-cookie';
-document.addEventListener('DOMContentLoaded', function (event) {
-  var PAGE_WRAPPER_SELECTOR = '[fs-hacks-element="page-wrapper"]';
-  var LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="hack10-loading-wrapper"]';
+document.addEventListener('DOMContentLoaded', function () {
+  const PAGE_WRAPPER_SELECTOR = '[fs-hacks-element="page-wrapper"]';
+  const LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="hack10-loading-wrapper"]';
   // get a reference to the page wrapper
-  var pageWrapper = document.querySelector(PAGE_WRAPPER_SELECTOR);
+  const pageWrapper = document.querySelector(PAGE_WRAPPER_SELECTOR);
   /*The page-wrapper is initially hidden*/
   if (!pageWrapper) return;
   pageWrapper.style.display = 'none';
   // get a reference to the loading wrapper
-  var loadingWrapper = document.querySelector(LOADING_WRAPPER_SELECTOR);
+  const loadingWrapper = document.querySelector(LOADING_WRAPPER_SELECTOR);
   if (!loadingWrapper) return;
   // get the 'seenAnimation' cookie and store in a seenAnimation variable
-  var seenAnimation = Cookies.get('seenAnimation');
+  const seenAnimation = Cookies.get('seenAnimation');
   // if the 'seenAnimation' cookie is undefined
   if (!seenAnimation) {
     // display the loading-wrapper
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     // show the page-wrapper
     // after a set duration of 3000 milliseconds
     // (the time it takes to show the loading-wrapper in this case)
-    setTimeout(function () {
+    setTimeout(() => {
       pageWrapper.style.display = 'block';
     }, 3000);
     // set the 'seenAnimation' cookie
@@ -36,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
   //This is for the "Clear my 24 hour cookie" button on this Hacks template
   // this is not needed on your live site
-  var CLEAR_COOKIES_BUTTON_SELECTOR = '[fs-hacks-element="clear-cookie"]';
-  var clearCookiesButton = document.querySelector(CLEAR_COOKIES_BUTTON_SELECTOR);
+  const CLEAR_COOKIES_BUTTON_SELECTOR = '[fs-hacks-element="clear-cookie"]';
+  const clearCookiesButton = document.querySelector(CLEAR_COOKIES_BUTTON_SELECTOR);
   if (!clearCookiesButton) return;
   // when  clearCookiesButton is clicked
-  clearCookiesButton.onclick = function () {
+  clearCookiesButton.onclick = () => {
     // remove the 'seenGif' cookie
     // the animation can now play again since
     //'seenAnimation' becomes undefined
