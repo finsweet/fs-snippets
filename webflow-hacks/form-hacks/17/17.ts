@@ -51,9 +51,9 @@ Please note the change of classes from 16 to 17
 
   // on input value change
   counterInput.addEventListener('change', () => {
-    // convert input value from a string to a number
+    // convert input value from a string to a number and assign it to constant num
     const num = Number(counterInput.value);
-    // if there's a number
+    // if num exists
     if (num) {
       // assign its value to x
       x = num;
