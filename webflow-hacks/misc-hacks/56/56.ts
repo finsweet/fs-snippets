@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const POPUP_SELECTOR = '[fs-hacks-element="hack56-ie-popup"]';
   // if browser is IE10 or IE11
   if (/Trident\/|MSIE/.test(window.navigator.userAgent)) {
-    // show "IE not supported" popup
     const POPUP = document.querySelector<HTMLElement>(POPUP_SELECTOR);
     if (!POPUP) return;
+    // show "IE not supported" popup
     POPUP.style.display = 'flex';
   }
 });
