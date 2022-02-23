@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!formButtonDown) return;
   // increase counter input value upon clicking on up button
   formButtonUp.addEventListener('click', () => {
-    // convert input value from a number to a string
+    // convert input value from a number to a string and assign it to constant stringValue
     const stringValue = JSON.stringify(++x);
     // assign that string value to the counter input value
     counterInput.value = stringValue;
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   formButtonDown.addEventListener('click', () => {
     // only allow decrement if the input value is greater than 0
     if (x > 0) {
-      //convert input value from a number to a string
+      //convert input value from a number to a string and assign it to constant stringValue
       const stringValue = JSON.stringify(--x);
       // assign that string value to the counter input value
       counterInput.value = stringValue;
