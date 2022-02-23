@@ -26,7 +26,7 @@ Please note the change of classes from 16 to 17
   // increase counter input value upon clicking on up button
   formButtonUp.addEventListener('click', () => {
     // convert input value from a number to a string and assign it to constant stringValue
-    const stringValue = JSON.stringify(++x);
+    const stringValue = (++x).toString();
     // assign that string value to the counter input value
     counterInput.value = stringValue;
   });
@@ -36,7 +36,7 @@ Please note the change of classes from 16 to 17
     // only allow decrement if the input value is greater than 0
     if (x > 0) {
       //convert input value from a number to a string and assign it to constant stringValue
-      const stringValue = JSON.stringify(--x);
+      const stringValue = (--x).toString();
       // assign that string value to the counter input value
       counterInput.value = stringValue;
     }
