@@ -11,21 +11,21 @@ Please note the change of classes from 16 to 17
 */
 
   // select elements with their respective data attributes
-  const counterInputAll = document.querySelectorAll<HTMLSelectElement>(COUNTER_INPUT_SELECTOR);
-  if (!counterInputAll) return;
+  const counterInputs = document.querySelectorAll<HTMLSelectElement>(COUNTER_INPUT_SELECTOR);
+  if (!counterInputs) return;
 
-  const formButtonUpAll = document.querySelectorAll<HTMLSelectElement>(FORM_BUTTON_UP_SELECTOR);
-  if (!formButtonUpAll) return;
+  const incrementButtons = document.querySelectorAll<HTMLSelectElement>(FORM_BUTTON_UP_SELECTOR);
+  if (!incrementButtons) return;
 
-  const formButtonDownAll = document.querySelectorAll<HTMLSelectElement>(FORM_BUTTON_DOWN_SELECTOR);
-  if (!formButtonDownAll) return;
+  const decrementButtons = document.querySelectorAll<HTMLSelectElement>(FORM_BUTTON_DOWN_SELECTOR);
+  if (!decrementButtons) return;
 
   // loop through each counter input
-  counterInputAll.forEach((item, index) => {
+  counterInputs.forEach((item, index) => {
     // declare individual components
-    const counterInput = counterInputAll[index];
-    const formButtonUp = formButtonUpAll[index];
-    const formButtonDown = formButtonDownAll[index];
+    const counterInput = counterInputs[index];
+    const incrementButton = incrementButtons[index];
+    const decrementButton = decrementButtons[index];
 
     // declare & initialize x at 0
     let x = 0;
@@ -37,12 +37,12 @@ Please note the change of classes from 16 to 17
     };
 
     // increase counter input value upon clicking on button up
-    formButtonUp.addEventListener('click', () => {
+    incrementButton.addEventListener('click', () => {
       setValue(++x);
     });
 
     // decrease counter input value upon clicking on button down
-    formButtonDown.addEventListener('click', () => {
+    decrementButton.addEventListener('click', () => {
       if (x <= 0) return;
       setValue(--x);
     });
