@@ -21,9 +21,8 @@ Please note the change of classes from 16 to 17
   if (!decrementButtons) return;
 
   // loop through each counter input
-  counterInputs.forEach((item, index) => {
+  counterInputs.forEach((counterInput, index) => {
     // declare individual components
-    const counterInput = counterInputs[index];
     const incrementButton = incrementButtons[index];
     const decrementButton = decrementButtons[index];
 

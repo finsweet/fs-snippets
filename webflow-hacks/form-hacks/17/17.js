@@ -17,9 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const decrementButtons = document.querySelectorAll(FORM_BUTTON_DOWN_SELECTOR);
   if (!decrementButtons) return;
   // loop through each counter input
-  counterInputs.forEach((item, index) => {
+  counterInputs.forEach((counterInput, index) => {
     // declare individual components
-    const counterInput = counterInputs[index];
     const incrementButton = incrementButtons[index];
     const decrementButton = decrementButtons[index];
     // declare & initialize x at 0
@@ -39,4 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setValue(--x);
     });
   });
+  const tab = document.querySelector('.tabs_tab-link-content')
+tab.addEventListener("click", logIt());
+const logIt = () => console.log('clickadito')
 });
