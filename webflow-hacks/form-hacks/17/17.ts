@@ -22,7 +22,7 @@ Please note the change of classes from 16 to 17
 
   // loop through each counter input
   counterInputs.forEach((counterInput, index) => {
-    // declare individual components
+    // declare individual increment and decrement buttons
     const incrementButton = incrementButtons[index];
     const decrementButton = decrementButtons[index];
 
