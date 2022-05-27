@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // if the user selected an option on the select field
     if (customSuccessMessage.trim() !== '') {
       // save the customSuccessMessage's value in a cookie
-      Cookies.set('successTextCookie', customSuccessMessage);
+      document.cookie = 'successTextCookie=' + customSuccessMessage;
       // then we submit the form
       return true;
     }
