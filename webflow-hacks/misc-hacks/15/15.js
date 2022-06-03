@@ -11,10 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     menuBtn.addEventListener('click', function () {
       // set a short timeout before taking action
       // so as to allow hash to be set
-      setTimeout(() => {
-        // call removeHash function after set timeout
-        removeHash();
-      }, 5); // 5 millisecond timeout in this case
+      setTimeout(removeHash);
     });
   });
 });
