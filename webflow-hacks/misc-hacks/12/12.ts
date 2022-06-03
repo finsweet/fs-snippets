@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const TEXT_SELECTOR = '[fs-hacks-element="hack-text"]';
   // get button and text elements
   const button = document.querySelector(BUTTON_SELECTOR);
-  const text = document.querySelector(TEXT_SELECTOR);
+  const textElement = document.querySelector(TEXT_SELECTOR);
   // early return if no button
-  if (!button || !text) return;
+  if (!button || !textElement) return;
   // on button click listener
   button.addEventListener('click', () => {
     // function - start
-    text.innerHTML = 'This is me on Webflow.';
+    textElement.innerHTML = 'This is me on Webflow.';
     // function - end
   });
 });
