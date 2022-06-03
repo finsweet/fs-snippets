@@ -1,10 +1,10 @@
 'use strict';
 // when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  const BUTTON_JS_SELECTOR = '[fs-hacks-element="hack13-back-1"]';
-  const BUTTON_JQUERY_SELECTOR = '[fs-hacks-element="hack13-back-2"]';
+  const BACK_ONE_SELECTOR = '[fs-hacks-element="hack13-back-1"]';
+  const BACK_TWO_SELECTOR = '[fs-hacks-element="hack13-back-2"]';
   // on click
-  const backOne = document.querySelector(BUTTON_JS_SELECTOR);
+  const backOne = document.querySelector(BACK_ONE_SELECTOR);
   backOne === null || backOne === void 0
     ? void 0
     : backOne.addEventListener('click', function (e) {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // window.history.go(-1);
       });
   // on click
-  const backTwo = document.querySelector(BUTTON_JQUERY_SELECTOR);
+  const backTwo = document.querySelector(BACK_TWO_SELECTOR);
   backTwo === null || backTwo === void 0
     ? void 0
     : backTwo.addEventListener('click', function (e) {
