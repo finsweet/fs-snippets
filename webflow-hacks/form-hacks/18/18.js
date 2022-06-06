@@ -4,19 +4,28 @@ document.addEventListener('DOMContentLoaded', function () {
   // make an array of invalid domains
   const invalidDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'competitor.com'];
   // set the fs-hacks selector
-  const SUBMIT_BUTTON_SELECTOR = '[fs-hacks-element="submit"]';
+  const FORM_SELECTOR = '[fs-hacks-element="form"]';
   const EMAIL_SELECTOR = '[fs-hacks-element="email"]';
   // get the dom elements
-  const submitBtn = document.querySelector(SUBMIT_BUTTON_SELECTOR);
+  const formElement = document.querySelector(FORM_SELECTOR);
   const emailInput = document.querySelector(EMAIL_SELECTOR);
   // check if the elements exists
-  if (!submitBtn || !emailInput) return;
+  if (!formElement || !emailInput) return;
   // on submit button click
-  submitBtn.addEventListener('click', function () {
+  formElement.addEventListener('submit', function () {
+    // validate the email
+    if (!validateEmail(emailInput.value)) {
+      // clear the email input
+      emailInput.value = '';
+      // set the error message in placeholder
+      emailInput.setAttribute('placeholder', 'Please enter a valid email address');
+      // prevent the form from submitting
+      return false;
+    }
     // split email at '@' character to get domain
     const domainPart = emailInput.value.split('@')[1];
     // if the domain exists in the invalidDomains array
-    if (invalidDomains.indexOf(domainPart) !== -1) {
+    if (invalidDomains.includes(domainPart)) {
       // clear email field
       emailInput.value = '';
       // add a 'use business mail' placeholder
@@ -26,3 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+const validateEmail = (email) => {
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return emailRegex.test(email);
+};
