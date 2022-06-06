@@ -3,15 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // make an array of invalid domains
   const invalidDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'competitor.com'];
   // set the fs-hacks selector
-  const SUBMIT_BUTTON_SELECTOR = '[fs-hacks-element="submit"]';
+  const FORM_SELECTOR = '[fs-hacks-element="form"]';
   const EMAIL_SELECTOR = '[fs-hacks-element="email"]';
   // get the dom elements
-  const submitBtn = document.querySelector<HTMLButtonElement>(SUBMIT_BUTTON_SELECTOR);
+  const formElement = document.querySelector<HTMLButtonElement>(FORM_SELECTOR);
   const emailInput = document.querySelector<HTMLInputElement>(EMAIL_SELECTOR);
   // check if the elements exists
-  if (!submitBtn || !emailInput) return;
+  if (!formElement || !emailInput) return;
   // on submit button click
-  submitBtn.addEventListener('click', function () {
+  formElement.addEventListener('submit', function () {
     // split email at '@' character to get domain
     const domainPart = emailInput.value.split('@')[1];
     // if the domain exists in the invalidDomains array
