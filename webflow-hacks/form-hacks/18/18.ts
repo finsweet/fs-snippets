@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const FORM_SELECTOR = '[fs-hacks-element="form"]';
   const EMAIL_SELECTOR = '[fs-hacks-element="email"]';
   // get the dom elements
-  const formElement = document.querySelector<HTMLButtonElement>(FORM_SELECTOR);
+  const formElement = document.querySelector<HTMLFormElement>(FORM_SELECTOR);
   const emailInput = document.querySelector<HTMLInputElement>(EMAIL_SELECTOR);
   // check if the elements exists
   if (!formElement || !emailInput) return;
