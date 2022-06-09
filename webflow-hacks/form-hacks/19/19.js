@@ -34,9 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // early return
   if (!form || !checkpmInp || !checkdesInp || !checkdevInp || !interestInp || !expInp || !formCheckboxes) return;
   // on submit form
-  form.addEventListener('submit', function (e) {
-    // prevent default behavior
-    e.preventDefault();
+  form.addEventListener('submit', function () {
     // for each checkbox
     formCheckboxes.forEach(function (checkbox) {
       // check if it's checked (true) or not (false)
