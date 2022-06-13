@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   // get the li items
   const listItems = document.querySelectorAll('li');
-  // for each li item
   listItems.forEach(function (item) {
     // check for '~' character
     // it's recommended to start with the deepest level of sub bullet
@@ -23,15 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * This function will indent the text of the li
  * item by adding classes and reformatting item text.
- * @param {HTMLElement} list item
+ * @param {HTMLElement} li item
  * @param {string} className
- * @returns {void}
  **/
 function indentText(li: HTMLLIElement, className: string): void {
   li.classList.add(className);
   // remove the '~' from the li items
-  // the regex /~+/g
-  // matches any one or more ~ characters
+  // the regex /~+/g matches any one or more ~ characters
   const reformatedText = li.innerHTML.replace(/~+/g, '');
   // replace the li item's html text that has ~ tags
   // with the new text that removed the ~ character(s)
