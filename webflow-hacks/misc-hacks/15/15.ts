@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const MENU_BUTTON_SELECTOR = '[fs-hacks-element="menu-button"]';
   // get the anchor link buttons
   const menuBtns = document.querySelectorAll(MENU_BUTTON_SELECTOR);
-  if (!menuBtns) return;
   // for each menu button
   menuBtns.forEach(function (menuBtn) {
     // when each button is clicked
