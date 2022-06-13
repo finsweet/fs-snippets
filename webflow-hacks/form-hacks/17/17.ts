@@ -17,24 +17,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const counterInput = counterDiv.querySelector<HTMLInputElement>(COUNTER_INPUT_SELECTOR);
     if (!incrementButton || !decrementButton || !counterInput) return;
 
-    // declare & initialize x at 0
-    let x = 0;
-
-    // function assigning the counter value
-    const setValue = (num: number) => {
-      const stringValue = num.toString();
-      counterInput.value = stringValue;
-    };
+    // init the counter
+    const counter = initCounter(counterInput);
 
     // increase counter input value upon clicking on button up
-    incrementButton.addEventListener('click', () => {
-      setValue((x += 1));
-    });
+    incrementButton.addEventListener('click', counter.increment);
 
     // decrease counter input value upon clicking on button down
-    decrementButton.addEventListener('click', () => {
-      if (x <= 0) return;
-      setValue((x -= 1));
-    });
+    decrementButton.addEventListener('click', counter.decrement);
   });
 });
+
+/**
+ * Inits a counter input.
+ * @param input The input element.
+ * @returns Methods to increment and decrement the counter.
+ */
+const initCounter = (input: HTMLInputElement) => {
+  let count = 0;
+
+  return {
+    increment() {
+      count += 1;
+      setValue(input, count);
+    },
+
+    decrement() {
+      if (count <= 0) return;
+
+      count -= 1;
+      setValue(input, count);
+    },
+  };
+};
+
+/**
+ * Sets a numeric value to a form field.
+ * @param input The input element.
+ * @param value The numeric value to add.
+ */
+const setValue = (input: HTMLInputElement, value: number) => {
+  const stringValue = value.toString();
+  input.value = stringValue;
+};
