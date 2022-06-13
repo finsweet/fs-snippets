@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const date = year + '/' + month + '/' + day;
     // if user's age >= 21
     if (getAge(date) >= 21) {
-      // give the user a validAge cookie
-      document.cookie = 'validAge=true; max-age=31536000';
+      // set validAge to localStorage
+      localStorage.setItem('validAge', 'true');
       // redirect to hack page
       window.location.replace(PROTECTED_PAGE);
     } else {
