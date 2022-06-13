@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!button || !textElement) return;
   // on button click listener
   button.addEventListener('click', () => {
-    // function - start
     textElement.innerHTML = 'This is me on Webflow.';
-    // function - end
   });
 });
