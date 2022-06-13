@@ -18,9 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * This function uses HTML5 history API to manipulate the location bar
  * to remove the hash from the URL.
- * @returns void
  */
-
 function removeHash() {
   history.replaceState('', document.title, window.location.origin + window.location.pathname + window.location.search);
 }
