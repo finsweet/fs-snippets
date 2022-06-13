@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // on click
   const backOne = document.querySelector<HTMLDivElement>(BACK_ONE_SELECTOR);
-  backOne?.addEventListener('click', function (e) {
+  const backTwo = document.querySelector<HTMLDivElement>(BACK_TWO_SELECTOR);
+  if (!backOne || !backTwo) return;
+  backOne.addEventListener('click', function (e) {
     // prevent default behavior
     e.preventDefault();
     // Go back 1 page
@@ -15,8 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // on click
-  const backTwo = document.querySelector<HTMLDivElement>(BACK_TWO_SELECTOR);
-  backTwo?.addEventListener('click', function (e) {
+  backTwo.addEventListener('click', function (e) {
     // prevent default behavior
     e.preventDefault();
     // Go back 2 pages
