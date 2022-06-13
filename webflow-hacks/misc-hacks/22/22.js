@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const dateVersionTwo = document.querySelector(DATE_VERSION_TWO_SELECTOR);
   // early exit if no elements found
   if (!dateVersionOne || !dateVersionTwo) return;
-  //set your formatting options
-  //Version 1 output = "Sat, Dec 25, 2019"
+  // Set your formatting options e.g. Version 1 output = "Sat, Dec 25, 2019"
+  // See more available options at {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options}
   const dateVersion1Format = {
     weekday: 'short',
     year: 'numeric',
