@@ -1,13 +1,3 @@
-// when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  // check if device is mobile
-  if (mobileAndTabletCheck()) {
-    loadScriptFile('https://files.finsweet.com/webflowhacks/hack27-mobile.js');
-  } else {
-    loadScriptFile('https://files.finsweet.com/webflowhacks/hack27-desktop.js');
-  }
-});
-
 /**
  * This function will inject a script tag into the head section of a page.
  * @param {string} src - The source of the script tag.
@@ -38,3 +28,10 @@ const mobileAndTabletCheck = () => {
   })(navigator.userAgent || navigator.vendor);
   return check;
 };
+
+// check if device is mobile
+if (mobileAndTabletCheck()) {
+  loadScriptFile('https://files.finsweet.com/webflowhacks/hack27-mobile.js');
+} else {
+  loadScriptFile('https://files.finsweet.com/webflowhacks/hack27-desktop.js');
+}
