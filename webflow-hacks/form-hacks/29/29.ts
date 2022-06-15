@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const FORM_SELECTOR = '[fs-hacks-element="hack29-form"]';
   const NAME_INPUT_SELECTOR = '[fs-hacks-element="hack29-name-input"]';
   const MESSAGE_SELECTOR = '.w-form-done';
-  const messageDiv = document.querySelector<HTMLDivElement>(MESSAGE_SELECTOR);
   const form = document.querySelector<HTMLFormElement>(FORM_SELECTOR);
   // early return
-  if (!form || !messageDiv) return;
+  if (!form) return;
   // when form is submitted
   form.addEventListener('submit', function () {
     const nameInput = this.querySelector<HTMLInputElement>(NAME_INPUT_SELECTOR);
-    if (!nameInput) return;
+    const messageDiv = this.querySelector<HTMLDivElement>(MESSAGE_SELECTOR);
+    if (!nameInput || !messageDiv) return;
     const nameValue = nameInput.value;
     if (nameValue && nameValue !== '') {
       messageDiv.innerText = `Thank you, ${nameValue}!`;
