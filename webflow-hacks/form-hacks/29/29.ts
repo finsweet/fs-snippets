@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!form) return;
   const nameInput = form.querySelector<HTMLInputElement>(NAME_INPUT_SELECTOR);
   const messageDiv = form.querySelector<HTMLDivElement>(MESSAGE_SELECTOR);
+  if (!nameInput || !messageDiv) return;
   // when form is submitted
   form.addEventListener('submit', function () {
-    if (!nameInput || !messageDiv) return;
     const nameValue = nameInput.value;
     if (nameValue && nameValue !== '') {
       messageDiv.innerText = `Thank you, ${nameValue}!`;
