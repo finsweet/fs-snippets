@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const chromeHeading = document.querySelector(CHROME_SELECTOR);
   const otherHeading = document.querySelector(OTHER_SELECTOR);
   if (!androidHeading || !iosHeading || !chromeHeading || !otherHeading) return;
-  // If the users window is at or below 991, do everything below
-  if (window.innerWidth > 991) return;
   // test regex /android/i
   if (testBrowser(/Android/i)) {
     androidHeading.style.display = 'block';
