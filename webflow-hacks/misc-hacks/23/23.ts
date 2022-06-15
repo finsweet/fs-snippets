@@ -6,9 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const timeVersionOne = document.querySelector<HTMLHeadingElement>(TIME_VERSION_ONE_SELECTOR);
   const timeVersionTwo = document.querySelector<HTMLHeadingElement>(TIME_VERSION_TWO_SELECTOR);
   if (!timeVersionOne || !timeVersionTwo) return;
-
-  //set your formatting options
-  //Version 1 output = "16:09:19"
+  // See more available options at {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options}
+  // set your formatting options Version 1 output = "16:09:19"
   const timeVersion1Format: Intl.DateTimeFormatOptions = {
     timeZone: 'America/New_York',
     hour12: false,
