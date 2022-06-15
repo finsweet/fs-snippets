@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // early return if no element found
   if (!textElement || !inputElement) return;
   // on every input field key stroke
-  inputElement.addEventListener('keyup', function () {
+  inputElement.addEventListener('input', function () {
     // set the text content as the input field value
     textElement.innerText = this.value;
   });
