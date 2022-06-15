@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector(FORM_SELECTOR);
   // early return
   if (!form) return;
+  const nameInput = form.querySelector(NAME_INPUT_SELECTOR);
+  const messageDiv = form.querySelector(MESSAGE_SELECTOR);
   // when form is submitted
   form.addEventListener('submit', function () {
-    const nameInput = this.querySelector(NAME_INPUT_SELECTOR);
-    const messageDiv = this.querySelector(MESSAGE_SELECTOR);
     if (!nameInput || !messageDiv) return;
     const nameValue = nameInput.value;
     if (nameValue && nameValue !== '') {
