@@ -1,26 +1,18 @@
 // when DOM is ready, run the function
 document.addEventListener('DOMContentLoaded', function () {
   // if the page url lacks a query string
-  if (!window.location.search) return;
-  // get all links with href attribute
-  const allLinks = document.querySelectorAll('a[href]');
-  allLinks.forEach((link) => {
-    // get the link's href attribute value
-    const hrefVal = link.getAttribute('href');
-    if (!hrefVal || hrefVal.startsWith('#')) return;
-    let href;
-    // if the link's href attribute already has its own query string
-    if (hrefVal.includes('?')) {
-      // append the page url's query string
-      href = hrefVal + '&' + window.location.search.split('?')[1];
-    } else {
-      href = hrefVal + window.location.search;
-    }
-    link.setAttribute('href', href);
-  });
-});
+  if (!location.search) return;
+  // get the params
+  const searchParams = new URLSearchParams(location.search).entries();
+  const allLinks = document.querySelectorAll<HTMLAnchorElement>('a[href]');
+  // for each link append url params
+  for (const link of allLinks) {
+    const url = new URL(link.href);
+    if (url.hash && url.pathname === location.pathname) return;
 
-// uses HTML5 history API to manipulate the location bar
-setTimeout(() => {
-  history.replaceState('', document.title, window.location.origin + window.location.pathname);
+    for (const searchParam of searchParams) {
+      url.searchParams.append(...searchParam);
+    }
+    link.href = url.toString();
+  }
 });
