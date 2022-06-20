@@ -1,18 +1,14 @@
 'use strict';
 // when dom is ready
 document.addEventListener('DOMContentLoaded', function () {
-  const BRANDING_DIV_SELECTOR = '[fs-hacks-element="branding"]';
-  const DEVELOPMENT_DIV_SELECTOR = '[fs-hacks-element="development"]';
   const TOTAL_SELECTOR = '[fs-hacks-element="total-value"]';
   const HIDDEN_INPUT_SELECTOR = '[fs-hacks-element="hidden-total"]';
   const ADD_VALUE_ATTRIBUTE = 'add-value';
   // get all elements
   const totalValueDiv = document.querySelector(TOTAL_SELECTOR);
   const hiddenTotalInput = document.querySelector(HIDDEN_INPUT_SELECTOR);
-  const brandingDiv = document.querySelector(BRANDING_DIV_SELECTOR);
-  const developmentDiv = document.querySelector(DEVELOPMENT_DIV_SELECTOR);
   const radios = document.querySelectorAll(`[${ADD_VALUE_ATTRIBUTE}]`);
-  if (!totalValueDiv || !hiddenTotalInput || !brandingDiv || !developmentDiv) return;
+  if (!totalValueDiv || !hiddenTotalInput) return;
   let brandingTotal = 0;
   let developmentTotal = 0;
   radios.forEach((radio) => {
@@ -20,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
     radio.addEventListener('input', function () {
       if (!radio.checked) return;
       // find if element is in the branding or development div
-      if (brandingDiv.contains(radio)) {
+      if (radio.getAttribute('name') === 'Branding') {
         // get the value of the radio
         brandingTotal = Number(radio.getAttribute(ADD_VALUE_ATTRIBUTE));
       }
-      if (developmentDiv.contains(radio)) {
+      if (radio.getAttribute('name') === 'Development') {
         developmentTotal = Number(radio.getAttribute(ADD_VALUE_ATTRIBUTE));
       }
       const total = brandingTotal + developmentTotal;
