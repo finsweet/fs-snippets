@@ -12,17 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // get all selects
   const selects = form.querySelectorAll(SELECT_SELECTOR);
   // listener for form
-  form.addEventListener('input', () => {
-    // loop through all selects
-    let total = 0;
-    selects.forEach((select) => {
-      // get selected option
-      const selectedOption = select.options[select.selectedIndex];
-      // add option value to total
-      total += Number(selectedOption.getAttribute('value'));
-    });
-    // update totals div and hidden input
-    updateTotals(total, totalDiv, hiddenInput);
+  form.addEventListener('input', function (event) {
+    const target = event.target;
+    // if target has attribute fs-hacks-element
+    if (target.hasAttribute('fs-hacks-element')) {
+      // loop through all selects
+      let total = 0;
+      selects.forEach((select) => {
+        // get selected option
+        const selectedOption = select.options[select.selectedIndex];
+        // add option value to total
+        total += Number(selectedOption.getAttribute('value'));
+      });
+      // update totals div and hidden input
+      updateTotals(total, totalDiv, hiddenInput);
+    }
   });
 });
 /***
