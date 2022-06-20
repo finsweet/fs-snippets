@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // listener for form
   form.addEventListener('input', function (event) {
     const target = event.target;
-    // if target has attribute fs-hacks-element
-    if (target.hasAttribute('fs-hacks-element')) {
+    // if target has attribute has the select selector
+    if (target.matches(SELECT_SELECTOR)) {
       // loop through all selects
       let total = 0;
       selects.forEach((select) => {
