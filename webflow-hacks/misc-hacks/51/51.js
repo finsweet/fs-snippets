@@ -17,9 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const TABLE_SELECTOR = '[fs-hacks-element="table"]';
   // loop through all tables
   const tables = document.querySelectorAll(TABLE_SELECTOR);
-  tables.forEach((table) => {
-    updateSubTotals(table);
-  });
+  tables.forEach(updateSubTotals);
 });
 /**
  * This function is used to update the total fees for each column of the table.

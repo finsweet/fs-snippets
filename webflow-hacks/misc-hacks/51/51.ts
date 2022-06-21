@@ -16,9 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const TABLE_SELECTOR = '[fs-hacks-element="table"]';
   // loop through all tables
   const tables = document.querySelectorAll<HTMLDivElement>(TABLE_SELECTOR);
-  tables.forEach((table) => {
-    updateSubTotals(table);
-  });
+  tables.forEach(updateSubTotals);
 });
 
 /**
