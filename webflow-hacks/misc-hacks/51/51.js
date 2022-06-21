@@ -1,3 +1,4 @@
+'use strict';
 document.addEventListener('DOMContentLoaded', () => {
   const TABLE_SELECTOR = '[fs-hacks-element="table"]';
   const COLUMN_TYPE_SELECTOR = [
@@ -11,26 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
     '[fs-hacks-element="subscription-total-fee"]',
   ];
   // loop through all tables
-  const tables = document.querySelectorAll<HTMLDivElement>(TABLE_SELECTOR);
+  const tables = document.querySelectorAll(TABLE_SELECTOR);
   tables.forEach((table) => {
     updateSubTotals(table, COLUMN_TOTAL_SELECTOR, COLUMN_TYPE_SELECTOR);
   });
 });
-
 /**
  * This function is used to update the total fees for each column of the table.
  * @param table DOM element of the table
  * @param displayTotalSelector selectors Column that displays the total fee
  * @param columnValueSelectors Selectors for the inidividual fees by column
  */
-
-function updateSubTotals(table: HTMLDivElement, displayTotalSelector: string[], columnValueSelectors: string[]) {
+function updateSubTotals(table, displayTotalSelector, columnValueSelectors) {
   // loop through all columns.
   for (const columnValueSelector of columnValueSelectors) {
     let totalFee = 0;
     const index = columnValueSelectors.indexOf(columnValueSelector);
-    const columns = table.querySelectorAll<HTMLDivElement>(columnValueSelector);
-    const totalDiv = table.querySelector<HTMLDivElement>(displayTotalSelector[index]);
+    const columns = table.querySelectorAll(columnValueSelector);
+    const totalDiv = table.querySelector(displayTotalSelector[index]);
     if (!totalDiv) continue;
     columns.forEach(({ innerText }) => {
       const toBeAdded = Number(innerText);
