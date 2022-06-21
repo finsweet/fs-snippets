@@ -1,34 +1,33 @@
 'use strict';
+const COLUMN_SELECTORS = [
+  {
+    type: '[fs-hacks-element="design-column"]',
+    total: '[fs-hacks-element="design-total-fee"]',
+  },
+  {
+    type: '[fs-hacks-element="development-column"]',
+    total: '[fs-hacks-element="development-total-fee"]',
+  },
+  {
+    type: '[fs-hacks-element="subscription-column"]',
+    total: '[fs-hacks-element="subscription-total-fee"]',
+  },
+];
 document.addEventListener('DOMContentLoaded', () => {
   const TABLE_SELECTOR = '[fs-hacks-element="table"]';
-  const COLUMN_SELECTORS = [
-    {
-      type: '[fs-hacks-element="design-column"]',
-      total: '[fs-hacks-element="design-total-fee"]',
-    },
-    {
-      type: '[fs-hacks-element="development-column"]',
-      total: '[fs-hacks-element="development-total-fee"]',
-    },
-    {
-      type: '[fs-hacks-element="subscription-column"]',
-      total: '[fs-hacks-element="subscription-total-fee"]',
-    },
-  ];
   // loop through all tables
   const tables = document.querySelectorAll(TABLE_SELECTOR);
   tables.forEach((table) => {
-    updateSubTotals(table, COLUMN_SELECTORS);
+    updateSubTotals(table);
   });
 });
 /**
  * This function is used to update the total fees for each column of the table.
  * @param table DOM element of the table
- * @param columnSelectors array of objects with type and total selectors
  */
-function updateSubTotals(table, columnSelectors) {
+function updateSubTotals(table) {
   // loop through all columns.
-  columnSelectors.forEach(({ type, total }) => {
+  COLUMN_SELECTORS.forEach(({ type, total }) => {
     let totalFee = 0;
     const columns = table.querySelectorAll(type);
     const totalDiv = table.querySelector(total);
