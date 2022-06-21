@@ -1,41 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
   const TABLE_SELECTOR = '[fs-hacks-element="table"]';
-  const COLUMN_TYPE_SELECTOR = [
-    '[fs-hacks-element="design-column"]',
-    '[fs-hacks-element="development-column"]',
-    '[fs-hacks-element="subscription-column"]',
-  ];
-  const COLUMN_TOTAL_SELECTOR = [
-    '[fs-hacks-element="design-total-fee"]',
-    '[fs-hacks-element="development-total-fee"]',
-    '[fs-hacks-element="subscription-total-fee"]',
+  const COLUMN_SELECTORS: Array<{ type: string; total: string }> = [
+    {
+      type: '[fs-hacks-element="design-column"]',
+      total: '[fs-hacks-element="design-total-fee"]',
+    },
+    {
+      type: '[fs-hacks-element="development-column"]',
+      total: '[fs-hacks-element="development-total-fee"]',
+    },
+    {
+      type: '[fs-hacks-element="subscription-column"]',
+      total: '[fs-hacks-element="subscription-total-fee"]',
+    },
   ];
   // loop through all tables
   const tables = document.querySelectorAll<HTMLDivElement>(TABLE_SELECTOR);
   tables.forEach((table) => {
-    updateSubTotals(table, COLUMN_TOTAL_SELECTOR, COLUMN_TYPE_SELECTOR);
+    updateSubTotals(table, COLUMN_SELECTORS);
   });
 });
 
 /**
  * This function is used to update the total fees for each column of the table.
  * @param table DOM element of the table
- * @param displayTotalSelector selectors Column that displays the total fee
- * @param columnValueSelectors Selectors for the inidividual fees by column
+ * @param columnSelectors array of objects with type and total selectors
  */
 
-function updateSubTotals(table: HTMLDivElement, displayTotalSelector: string[], columnValueSelectors: string[]) {
+function updateSubTotals(table: HTMLDivElement, columnSelectors: Array<{ type: string; total: string }>) {
   // loop through all columns.
-  for (const columnValueSelector of columnValueSelectors) {
+  columnSelectors.forEach(({ type, total }) => {
     let totalFee = 0;
-    const index = columnValueSelectors.indexOf(columnValueSelector);
-    const columns = table.querySelectorAll<HTMLDivElement>(columnValueSelector);
-    const totalDiv = table.querySelector<HTMLDivElement>(displayTotalSelector[index]);
-    if (!totalDiv) continue;
+    const columns = table.querySelectorAll<HTMLDivElement>(type);
+    const totalDiv = table.querySelector<HTMLDivElement>(total);
+    if (!totalDiv) return;
     columns.forEach(({ innerText }) => {
       const toBeAdded = Number(innerText);
       if (!isNaN(toBeAdded)) totalFee += toBeAdded;
     });
     totalDiv.innerText = totalFee.toString();
-  }
+  });
 }
