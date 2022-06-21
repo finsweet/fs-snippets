@@ -7,26 +7,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const HIDDEN_TOTAL_SELECTOR = '[fs-hacks-element="hidden-total"]';
   const form = document.querySelector(FORM_SELECTOR);
   const totalDiv = document.querySelector(TOTAL_SELECTOR);
-  const hiddenInput = document.querySelector(HIDDEN_TOTAL_SELECTOR);
-  if (!form || !totalDiv || !hiddenInput) return;
+  if (!form || !totalDiv) return;
+  const hiddenInput = form.querySelector(HIDDEN_TOTAL_SELECTOR);
+  if (!hiddenInput) return;
   // get all selects
   const selects = form.querySelectorAll(SELECT_SELECTOR);
   // listener for form
   form.addEventListener('input', function (event) {
     const target = event.target;
     // if target has attribute has the select selector
-    if (target.matches(SELECT_SELECTOR)) {
-      // loop through all selects
-      let total = 0;
-      selects.forEach((select) => {
-        // get selected option
-        const selectedOption = select.options[select.selectedIndex];
-        // add option value to total
-        total += Number(selectedOption.getAttribute('value'));
-      });
-      // update totals div and hidden input
-      updateTotals(total, totalDiv, hiddenInput);
-    }
+    if (!target.matches(SELECT_SELECTOR)) return;
+    // loop through all selects
+    let total = 0;
+    selects.forEach((select) => {
+      total += Number(select.value);
+    });
+    // update totals div and hidden input
+    updateTotals(total, totalDiv, hiddenInput);
   });
 });
 /***
