@@ -12,6 +12,7 @@ const COLUMN_SELECTORS: Array<{ type: string; total: string }> = [
     total: '[fs-hacks-element="subscription-total-fee"]',
   },
 ];
+
 document.addEventListener('DOMContentLoaded', () => {
   const TABLE_SELECTOR = '[fs-hacks-element="table"]';
 
