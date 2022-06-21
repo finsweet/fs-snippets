@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * This function updates the total elements, given a list of select elements.
- * @param total
- * @param totalValueDiv
- * @param hiddenTotalInput
+ * @param selects list of select elements
+ * @param totalValueDiv total value div
+ * @param hiddenTotalInput hidden total input element
  */
 const updateTotals = (
   selects: NodeListOf<HTMLSelectElement>,
