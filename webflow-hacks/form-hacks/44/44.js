@@ -12,28 +12,30 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!hiddenInput) return;
   // get all selects
   const selects = form.querySelectorAll(SELECT_SELECTOR);
+  // update totals div and hidden input
+  updateTotals(selects, totalDiv, hiddenInput);
   // listener for form
   form.addEventListener('input', function (event) {
     const target = event.target;
     // if target has attribute has the select selector
     if (!target.matches(SELECT_SELECTOR)) return;
-    // loop through all selects
-    let total = 0;
-    selects.forEach(({ value }) => {
-      const toBeAdded = Number(value);
-      if (!isNaN(toBeAdded)) total += toBeAdded;
-    });
     // update totals div and hidden input
-    updateTotals(total, totalDiv, hiddenInput);
+    updateTotals(selects, totalDiv, hiddenInput);
   });
 });
-/***
- * This function updates the totals div and the hidden input
+/**
+ * This function updates the total elements, given a list of select elements.
  * @param total
  * @param totalValueDiv
  * @param hiddenTotalInput
  */
-const updateTotals = (total, totalValueDiv, hiddenTotalInput) => {
+const updateTotals = (selects, totalValueDiv, hiddenTotalInput) => {
+  // loop through selects, adding to total
+  let total = 0;
+  selects.forEach(({ value }) => {
+    const toBeAdded = Number(value);
+    if (!isNaN(toBeAdded)) total += toBeAdded;
+  });
   // format sum e.g. 3500 to 3,500
   const formattedSum = new Intl.NumberFormat().format(total);
   totalValueDiv.innerText = formattedSum;
