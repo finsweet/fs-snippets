@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
  * Update the total fees for each column of the table.
  * @param table DOM element of the table
  */
-
 function updateSubTotals(table: HTMLDivElement) {
   COLUMN_SELECTORS.forEach(({ type, total }) => {
     let totalFee = 0;
