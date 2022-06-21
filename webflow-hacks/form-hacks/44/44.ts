@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!target.matches(SELECT_SELECTOR)) return;
     // loop through all selects
     let total = 0;
-    selects.forEach((select: HTMLSelectElement) => {
-      const toBeAdded = Number(select.value);
+    selects.forEach(({ value }) => {
+      const toBeAdded = Number(value);
       if (!isNaN(toBeAdded)) total += toBeAdded;
     });
     // update totals div and hidden input
