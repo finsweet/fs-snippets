@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // use label string as attributes for checkbox
     const name = checkBoxLabel.innerText;
     const id = name.replace(/\W+/g, '-').toLowerCase();
-    checkBox.setAttribute('name', name);
-    checkBox.setAttribute('id', id);
+    checkBox.name = name;
+    checkBox.id = id;
     checkBoxLabel.setAttribute('data-name', id);
   }
 });
