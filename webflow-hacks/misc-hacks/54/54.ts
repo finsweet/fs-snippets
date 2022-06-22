@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const CHECKBOX_DIV_SELECTOR = '[fs-hacks-element="checkboxdiv"]';
+  const CHECKBOX_FIELD_SELECTOR = '[fs-hacks-element="checkbox-field"]';
   const CHECKBOX_LABEL_SELECTOR = '.w-form-label';
-  const checkBoxDivs = document.querySelectorAll<HTMLDivElement>(CHECKBOX_DIV_SELECTOR);
+  const checkBoxDivs = document.querySelectorAll<HTMLDivElement>(CHECKBOX_FIELD_SELECTOR);
 
   for (const checkBoxDiv of checkBoxDivs) {
     const checkBoxLabel = checkBoxDiv.querySelector<HTMLLabelElement>(CHECKBOX_LABEL_SELECTOR);
