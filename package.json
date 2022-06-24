@@ -37,6 +37,7 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
+    "@finsweet/ts-utils": "^0.33.1",
     "@finsweet/webflow-addons": "^1.0.8",
     "highlight.js": "^10.7.1"
   }
