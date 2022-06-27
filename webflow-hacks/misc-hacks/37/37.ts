@@ -3,17 +3,14 @@ window.Webflow.push(() => {
   const tabLinks = document.querySelectorAll<HTMLAnchorElement>('.w-tab-link');
   if (tabLinks.length === 0) return;
 
-  // add listeners and reset attributes
+  // add listeners and click chosen tab
+  const chosenTabId = localStorage.getItem('tab');
   tabLinks.forEach(function (tabLink) {
+    const currentTabId = tabLink.id;
+    if (chosenTabId === currentTabId) tabLink.click();
+
     tabLink.addEventListener('click', function () {
-      localStorage.setItem('tab', `#${tabLink.id}`);
+      localStorage.setItem('tab', `#${currentTabId}`);
     });
   });
-
-  // restore previously selected tab
-  const chosenTabId = localStorage.getItem('tab');
-  if (!chosenTabId) return;
-  const chosenTab = document.querySelector<HTMLAnchorElement>(chosenTabId);
-  if (!chosenTab) return;
-  chosenTab.click();
 });
