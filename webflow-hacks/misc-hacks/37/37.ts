@@ -1,16 +1,19 @@
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  const tabButtons = document.querySelectorAll<HTMLAnchorElement>('.w-tab-link');
-  if (tabButtons.length === 0) return;
+  const tabLinks = document.querySelectorAll<HTMLAnchorElement>('.w-tab-link');
+  if (tabLinks.length === 0) return;
 
   // add listeners and reset attributes
-  tabButtons.forEach(function (tabButton, index) {
-    tabButton.addEventListener('click', function () {
-      localStorage.setItem('tab', String(index));
+  tabLinks.forEach(function (tabLink) {
+    tabLink.addEventListener('click', function () {
+      localStorage.setItem('tab', `#${tabLink.id}`);
     });
   });
 
   // restore previously selected tab
-  const selectedTabIndex = Number(localStorage.getItem('tab')) || 0;
-  tabButtons[selectedTabIndex].click();
+  const chosenTabId = localStorage.getItem('tab');
+  if (!chosenTabId) return;
+  const chosenTab = document.querySelector<HTMLAnchorElement>(chosenTabId);
+  if (!chosenTab) return;
+  chosenTab.click();
 });
