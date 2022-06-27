@@ -9,7 +9,7 @@ window.Webflow.push(() => {
     const currentTabId = tabLink.id;
     if (chosenTabId === currentTabId) tabLink.click();
     tabLink.addEventListener('click', function () {
-      localStorage.setItem('tab', `#${currentTabId}`);
+      localStorage.setItem('tab', currentTabId);
     });
   });
 });
