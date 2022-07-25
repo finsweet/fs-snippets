@@ -11,7 +11,7 @@ function onYouTubeIframeAPIReady() {
   const iFrameContainer = document.querySelector(IFRAME_SELECTOR);
   if (!iFrameContainer) return;
   const iFrames = iFrameContainer.querySelectorAll('iframe');
-  iFrames.forEach((iFrame, index) => {
+  iFrames.forEach((iFrame) => {
     // set iframe properties
     const { src } = iFrame;
     if (!src) return;
@@ -19,7 +19,6 @@ function onYouTubeIframeAPIReady() {
     if (!newSrc.origin.includes('youtube')) return;
     newSrc.searchParams.append('enablejsapi', '1');
     iFrame.src = newSrc.toString();
-    iFrame.id = 'dynamic' + index;
     createPlayer(iFrame);
   });
 }
@@ -28,20 +27,21 @@ function onYouTubeIframeAPIReady() {
  * @param iframe The iframe
  */
 function createPlayer(iframe) {
-  // initialize YT.player with the specified iframe's id
+  // initialize YT.player object
   const player = new YT.Player(iframe, {
     events: {
       onReady: onPlayerReady,
     },
   });
   function onPlayerReady() {
-    const timestampLinks = document.querySelectorAll('.hacks-rich-text a');
+    const TIMESTAMP_LINK_SELECTOR = '[fs-hacks-element="timestamp"]';
+    const timestampLinks = document.querySelectorAll(TIMESTAMP_LINK_SELECTOR);
     timestampLinks.forEach((timestampLink) => {
+      const timestamp = timestampLink.innerText.trim();
+      const seconds = convertTimestampToSeconds(timestamp);
+      if (isNaN(seconds)) return;
       timestampLink.addEventListener('click', function (e) {
         e.preventDefault();
-        const timestamp = timestampLink.innerText.trim();
-        const seconds = convertTimestampToSeconds(timestamp);
-        if (isNaN(seconds)) return;
         player.seekTo(seconds, true);
       });
     });
@@ -53,6 +53,6 @@ function createPlayer(iframe) {
  * @returns {number}
  */
 const convertTimestampToSeconds = (timestamp) => {
-  const timeStampNumbers = timestamp.split(':').map((timeStampNumber) => Number(timeStampNumber));
-  return timeStampNumbers.reduce((acc, time) => 60 * acc + +time);
+  const timeStampNumbers = timestamp.split(':').map(Number);
+  return timeStampNumbers.reduce((acc, time) => 60 * acc + time);
 };
