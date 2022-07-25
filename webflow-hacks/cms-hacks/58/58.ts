@@ -58,7 +58,6 @@ function createPlayer(id: string) {
  * @param timestamp
  * @returns {number}
  */
-
 const convertTimestampToSeconds = (timestamp: string): number => {
   const timeStampArray = timestamp.split(':');
   let seconds = 0;
