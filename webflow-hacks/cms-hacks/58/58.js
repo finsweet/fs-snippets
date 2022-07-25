@@ -34,8 +34,11 @@ function createPlayer(iframe) {
     },
   });
   function onPlayerReady() {
+    const TIMESTAMP_CONTAINER_SELECTOR = '[fs-hacks-element="timestamps-container"]';
     const TIMESTAMP_LINK_SELECTOR = '[fs-hacks-element="timestamp"]';
-    const timestampLinks = document.querySelectorAll(TIMESTAMP_LINK_SELECTOR);
+    const container = iframe.closest(TIMESTAMP_CONTAINER_SELECTOR);
+    if (!container) return;
+    const timestampLinks = container.querySelectorAll(TIMESTAMP_LINK_SELECTOR);
     timestampLinks.forEach((timestampLink) => {
       const timestamp = timestampLink.innerText.trim();
       const seconds = convertTimestampToSeconds(timestamp);
