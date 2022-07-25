@@ -11,30 +11,34 @@ if (firstScriptTag.parentNode) {
  */
 function onYouTubeIframeAPIReady() {
   const IFRAME_SELECTOR = '[fs-hacks-element="iframe"]';
-  const iframeContainer = document.querySelector(IFRAME_SELECTOR);
-  if (!iframeContainer) return;
-  const iframes = iframeContainer.querySelectorAll<HTMLIFrameElement>('iframe');
-  iframes.forEach((iframe, index) => {
-    // set iframe properties
-    let src = iframe.getAttribute('src');
-    if (!src) return;
-    if (!src.includes('youtube')) return;
-    const enablejsapiString = src.includes('?') ? '&enablejsapi=1' : '?enablejsapi=1';
-    src = `${src + enablejsapiString}`;
-    iframe.setAttribute('src', src);
-    iframe.setAttribute('id', 'dynamic' + index);
+  const iFrameContainer = document.querySelector(IFRAME_SELECTOR);
+  if (!iFrameContainer) return;
 
-    createPlayer(iframe.id);
+  const iFrames = iFrameContainer.querySelectorAll('iframe');
+  iFrames.forEach((iFrame, index) => {
+    // set iframe properties
+    const { src } = iFrame;
+    if (!src) return;
+
+    const newSrc = new URL(src);
+    if (!newSrc.origin.includes('youtube')) return;
+
+    newSrc.searchParams.append('enablejsapi', '1');
+
+    iFrame.src = newSrc.toString();
+    iFrame.id = 'dynamic' + index;
+
+    createPlayer(iFrame);
   });
 }
 
 /**
  * Set up the player, add listeners, and play the video.
- * @param id: id of the iframe
+ * @param iframe The iframe
  */
-function createPlayer(id: string) {
+function createPlayer(iframe: HTMLIFrameElement) {
   // initialize YT.player with the specified iframe's id
-  const player = new YT.Player(id, {
+  const player = new YT.Player(iframe, {
     events: {
       onReady: onPlayerReady,
     },
@@ -47,6 +51,7 @@ function createPlayer(id: string) {
         e.preventDefault();
         const timestamp = timestampLink.innerText.trim();
         const seconds = convertTimestampToSeconds(timestamp);
+        if (isNaN(seconds)) return;
         player.seekTo(seconds, true);
       });
     });
@@ -59,24 +64,6 @@ function createPlayer(id: string) {
  * @returns {number}
  */
 const convertTimestampToSeconds = (timestamp: string): number => {
-  const timeStampArray = timestamp.split(':');
-  let seconds = 0;
-  timeStampArray.reverse();
-  timeStampArray.forEach((timeStamp, index) => {
-    const timeStampNumber = Number(timeStamp);
-    if (isNaN(timeStampNumber)) return 0;
-    // add seconds
-    if (index === 0) {
-      seconds += timeStampNumber;
-    }
-    // add minutes
-    if (index === 1) {
-      seconds += timeStampNumber * 60;
-    }
-    // add hours
-    if (index === 2) {
-      seconds += timeStampNumber * 60 * 60;
-    }
-  });
-  return seconds;
+  const timeStampNumbers = timestamp.split(':').map((timeStampNumber) => Number(timeStampNumber));
+  return timeStampNumbers.reduce((acc, time) => 60 * acc + +time);
 };

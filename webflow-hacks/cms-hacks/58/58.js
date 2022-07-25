@@ -11,28 +11,28 @@ if (firstScriptTag.parentNode) {
  */
 function onYouTubeIframeAPIReady() {
   const IFRAME_SELECTOR = '[fs-hacks-element="iframe"]';
-  const iframeContainer = document.querySelector(IFRAME_SELECTOR);
-  if (!iframeContainer) return;
-  const iframes = iframeContainer.querySelectorAll('iframe');
-  iframes.forEach((iframe, index) => {
+  const iFrameContainer = document.querySelector(IFRAME_SELECTOR);
+  if (!iFrameContainer) return;
+  const iFrames = iFrameContainer.querySelectorAll('iframe');
+  iFrames.forEach((iFrame, index) => {
     // set iframe properties
-    let src = iframe.getAttribute('src');
+    const { src } = iFrame;
     if (!src) return;
-    if (!src.includes('youtube')) return;
-    const enablejsapiString = src.includes('?') ? '&enablejsapi=1' : '?enablejsapi=1';
-    src = `${src + enablejsapiString}`;
-    iframe.setAttribute('src', src);
-    iframe.setAttribute('id', 'dynamic' + index);
-    createPlayer(iframe.id);
+    const newSrc = new URL(src);
+    if (!newSrc.origin.includes('youtube')) return;
+    newSrc.searchParams.append('enablejsapi', '1');
+    iFrame.src = newSrc.toString();
+    iFrame.id = 'dynamic' + index;
+    createPlayer(iFrame);
   });
 }
 /**
  * Set up the player, add listeners, and play the video.
- * @param id: id of the iframe
+ * @param iframe The iframe
  */
-function createPlayer(id) {
+function createPlayer(iframe) {
   // initialize YT.player with the specified iframe's id
-  const player = new YT.Player(id, {
+  const player = new YT.Player(iframe, {
     events: {
       onReady: onPlayerReady,
     },
@@ -44,6 +44,7 @@ function createPlayer(id) {
         e.preventDefault();
         const timestamp = timestampLink.innerText.trim();
         const seconds = convertTimestampToSeconds(timestamp);
+        if (isNaN(seconds)) return;
         player.seekTo(seconds, true);
       });
     });
@@ -55,24 +56,6 @@ function createPlayer(id) {
  * @returns {number}
  */
 const convertTimestampToSeconds = (timestamp) => {
-  const timeStampArray = timestamp.split(':');
-  let seconds = 0;
-  timeStampArray.reverse();
-  timeStampArray.forEach((timeStamp, index) => {
-    const timeStampNumber = Number(timeStamp);
-    if (isNaN(timeStampNumber)) return 0;
-    // add seconds
-    if (index === 0) {
-      seconds += timeStampNumber;
-    }
-    // add minutes
-    if (index === 1) {
-      seconds += timeStampNumber * 60;
-    }
-    // add hours
-    if (index === 2) {
-      seconds += timeStampNumber * 60 * 60;
-    }
-  });
-  return seconds;
+  const timeStampNumbers = timestamp.split(':').map((timeStampNumber) => Number(timeStampNumber));
+  return timeStampNumbers.reduce((acc, time) => 60 * acc + +time);
 };
