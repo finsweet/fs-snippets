@@ -65,17 +65,18 @@ const convertTimestampToSeconds = (timestamp: string): number => {
   timeStampArray.reverse();
   timeStampArray.forEach((timeStamp, index) => {
     const timeStampNumber = Number(timeStamp);
+    if (isNaN(timeStampNumber)) return;
     // add seconds
     if (index === 0) {
-      if (!isNaN(timeStampNumber)) seconds += timeStampNumber;
+      seconds += timeStampNumber;
     }
     // add minutes
     if (index === 1) {
-      if (!isNaN(timeStampNumber)) seconds += timeStampNumber * 60;
+      seconds += timeStampNumber * 60;
     }
     // add hours
     if (index === 2) {
-      if (!isNaN(timeStampNumber)) seconds += timeStampNumber * 60 * 60;
+      seconds += timeStampNumber * 60 * 60;
     }
   });
   return seconds;
