@@ -29,10 +29,10 @@ const validateEmail = (email: string) => {
 
   if (!emailRegex.test(email)) return false;
 
-  const domainPart = email.split('@');
+  const [, domainPart] = email.split('@');
   if (!domainPart) return false;
 
-  if (invalidDomains.includes(domainPart[1])) return false;
+  if (invalidDomains.includes(domainPart)) return false;
 
   return true;
 };
