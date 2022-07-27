@@ -6,9 +6,7 @@ Mailchimp to send the form! You will get an error message
 if you don't have it entered correctly
 */
 
-// when the DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
-  // declare constants
   const FORM_SELECTOR = '[fs-hacks-element="form"]';
   const CHECKBOX_SELECTOR = '[fs-hacks-element="hack19-checkbox"]';
   const HIDDEN_INTEREST_SELECTOR = 'input[name="INTEREST"]';
@@ -16,38 +14,24 @@ document.addEventListener('DOMContentLoaded', function () {
   const HIDDEN_DESIGNER_SELECTOR = 'input[name="CHECKDES"]';
   const HIDDEN_DEVELOPER_SELECTOR = 'input[name="CHECKDEv"]';
   const HIDDEN_PM_SELECTOR = 'input[name="CHECKPM"]';
-  // get the checkbox fields
   const formCheckboxes = document.querySelectorAll<HTMLInputElement>(CHECKBOX_SELECTOR);
-  // create variables for our hidden text fields that will be submitted
-  // get the interest hidden input field
   const interestInp = document.querySelector<HTMLInputElement>(HIDDEN_INTEREST_SELECTOR);
-  // get the experience hidden input field
   const expInp = document.querySelector<HTMLInputElement>(HIDDEN_EXPERIENCE_SELECTOR);
-  // get the designer hidden input field
   const checkdesInp = document.querySelector<HTMLInputElement>(HIDDEN_DESIGNER_SELECTOR);
-  // get the developer hidden input field
   const checkdevInp = document.querySelector<HTMLInputElement>(HIDDEN_DEVELOPER_SELECTOR);
-  // get the PM hidden input field
   const checkpmInp = document.querySelector<HTMLInputElement>(HIDDEN_PM_SELECTOR);
-  // form element
   const form = document.querySelector<HTMLFormElement>(FORM_SELECTOR);
-  // early return
   if (!form || !checkpmInp || !checkdesInp || !checkdevInp || !interestInp || !expInp || !formCheckboxes) return;
 
-  // on submit form
   form.addEventListener('submit', function () {
-    // for each checkbox
-    formCheckboxes.forEach(function (checkbox) {
-      // check if it's checked (true) or not (false)
-      const status = checkbox.checked;
-      const checkBoxName = checkbox.getAttribute('name');
-      switch (checkBoxName) {
+    formCheckboxes.forEach(function ({ name, checked }) {
+      switch (name) {
         case 'designer':
-          checkdesInp.checked = status;
+          checkdesInp.checked = checked;
         case 'developer':
-          checkdevInp.checked = status;
+          checkdevInp.checked = checked;
         case 'pm':
-          checkpmInp.checked = status;
+          checkpmInp.checked = checked;
       }
     });
   });
