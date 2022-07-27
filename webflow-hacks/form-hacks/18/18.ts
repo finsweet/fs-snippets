@@ -16,7 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const domainPart = emailInput.value.split('@');
-    if (!domainPart) return;
+    if (!domainPart) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     if (invalidDomains.includes(domainPart[1])) {
       emailInput.value = '';
       emailInput.setAttribute('placeholder', 'Please enter a business email');
