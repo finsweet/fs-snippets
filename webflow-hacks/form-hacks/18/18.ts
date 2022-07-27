@@ -28,15 +28,11 @@ const validateEmail = (email: string) => {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (!emailRegex.test(email)) return false;
+
   const domainPart = email.split('@');
+  if (!domainPart) return false;
 
-  if (!domainPart) {
-    return false;
-  }
-
-  if (invalidDomains.includes(domainPart[1])) {
-    return false;
-  }
+  if (invalidDomains.includes(domainPart[1])) return false;
 
   return true;
 };
