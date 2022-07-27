@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
       emailInput.value = '';
       emailInput.setAttribute('placeholder', 'Please enter a valid email address');
       e.stopPropagation();
-      return false;
+      e.preventDefault();
     }
     const domainPart = emailInput.value.split('@')[1];
     if (invalidDomains.includes(domainPart)) {
       emailInput.value = '';
       emailInput.setAttribute('placeholder', 'Please enter a business email');
       e.stopPropagation();
-      return false;
+      e.preventDefault();
     }
   });
 });
