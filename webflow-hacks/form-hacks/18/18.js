@@ -8,19 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.querySelector(EMAIL_SELECTOR);
   if (!formElement || !emailInput) return;
   formElement.addEventListener('submit', function (e) {
-    if (!validateEmail(emailInput.value)) {
+    if (!validateEmail(emailInput.value, invalidDomains)) {
       emailInput.value = '';
       emailInput.setAttribute('placeholder', 'Please enter a valid email address');
-      e.stopPropagation();
-      e.preventDefault();
-    }
-    const domainPart = emailInput.value.split('@');
-    if (!domainPart) {
-      e.stopPropagation();
-      e.preventDefault();
-    } else if (invalidDomains.includes(domainPart[1])) {
-      emailInput.value = '';
-      emailInput.setAttribute('placeholder', 'Please enter a business email');
       e.stopPropagation();
       e.preventDefault();
     }
@@ -31,8 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
  * @param email email address to validate
  * @returns boolean true if valid, false if not
  */
-const validateEmail = (email) => {
+const validateEmail = (email, invalidDomains) => {
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return emailRegex.test(email);
+  if (emailRegex.test(email)) {
+    const domainPart = email.split('@');
+    if (!domainPart) {
+      return false;
+    }
+    if (invalidDomains.includes(domainPart[1])) {
+      return false;
+    }
+    return true;
+  }
+  return false;
 };
