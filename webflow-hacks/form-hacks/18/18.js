@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!domainPart) {
       e.stopPropagation();
       e.preventDefault();
-    }
-    if (invalidDomains.includes(domainPart[1])) {
+    } else if (invalidDomains.includes(domainPart[1])) {
       emailInput.value = '';
       emailInput.setAttribute('placeholder', 'Please enter a business email');
       e.stopPropagation();
