@@ -15,8 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
     }
 
-    const domainPart = emailInput.value.split('@')[1];
-    if (invalidDomains.includes(domainPart)) {
+    const domainPart = emailInput.value.split('@');
+    if (!domainPart) return;
+    if (invalidDomains.includes(domainPart[1])) {
       emailInput.value = '';
       emailInput.setAttribute('placeholder', 'Please enter a business email');
       e.stopPropagation();
