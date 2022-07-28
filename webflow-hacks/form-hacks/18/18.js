@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * Validates an email address
  * @param email email address to validate
- * @param invalidDomains list of invalid domains
  * @returns boolean true if valid, false if not
  */
 const validateEmail = (email) => {
