@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const HIDDEN_INPUT_SELECTOR = '[fs-hacks-element="hidden-total"]';
   const BRANDING_GROUP_NAME = 'Branding';
   const DEVELOPMENT_GROUP_NAME = 'Development';
+  const ADD_VALUE_ATTRIBUTE = 'fs-hacks-add-value';
   const checkboxes = document.querySelectorAll<HTMLInputElement>(CHECKBOX_SELECTOR);
   const totalValueDiv = document.querySelector<HTMLDivElement>(TOTAL_SELECTOR);
   const hiddenTotalInput = document.querySelector<HTMLInputElement>(HIDDEN_INPUT_SELECTOR);
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // add checkboxed value to sum
   for (const checkbox of checkboxes) {
-    const amountToBeAdded = Number(checkbox.getAttribute('add-value'));
+    const amountToBeAdded = Number(checkbox.getAttribute(ADD_VALUE_ATTRIBUTE));
     if (isNaN(amountToBeAdded)) continue;
     if (checkbox.checked) sum += amountToBeAdded;
 
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // add selected value to sum
-  selects.forEach((select) => {
+  for (const select of selects) {
     const { value } = select;
     let previousSelectedValue = Number(value);
     if (!isNaN(previousSelectedValue)) sum += previousSelectedValue;
@@ -47,12 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!isNaN(previousSelectedValue)) sum += previousSelectedValue;
       updateTotals(sum, totalValueDiv, hiddenTotalInput);
     });
-  });
+  }
 
   // add radio values to sum
   let brandingTotal = 0;
   let developmentTotal = 0;
-  radios.forEach((radio) => {
+  for (const radio of radios) {
     const { value, checked } = radio;
     const amountToBeAdded = Number(value);
     if (isNaN(amountToBeAdded) && checked) sum += amountToBeAdded;
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
       sum += brandingTotal + developmentTotal;
       updateTotals(sum, totalValueDiv, hiddenTotalInput);
     });
-  });
+  }
 
   // update totals on page load
   updateTotals(sum, totalValueDiv, hiddenTotalInput);
