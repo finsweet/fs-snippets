@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   menuBtns.forEach(function (menuBtn) {
     menuBtn.addEventListener('click', function () {
+      //  allow hash to be set by adding small delay
       setTimeout(removeHash);
     });
   });
