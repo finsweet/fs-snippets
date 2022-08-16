@@ -1,19 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
   const UL_SELECTOR = '[fs-hacks-element="unordered-list"]';
-  const originalList = document.querySelector(UL_SELECTOR);
-  const unorderedList = document.createElement('ul');
-  if (!originalList) return;
+  const OL_SELECTOR = '[fs-hacks-element="ordered-list"]';
+  const originalUnorderedList = document.querySelector(UL_SELECTOR);
+  const originalOrderedList = document.querySelector(OL_SELECTOR);
 
-  const listItems = originalList.querySelectorAll('li');
+  if (originalUnorderedList) {
+    const newUnorderedList = document.createElement('ul');
+    const listItems = originalUnorderedList.querySelectorAll('li');
 
-  for (const item of listItems) {
-    const tildeCount = (item.innerText.match(/~/g) || []).length;
-    const cleanedList = cleanListItem(item);
-    const wrappedList = wrapList(cleanedList, tildeCount);
-    unorderedList.appendChild(wrappedList);
+    for (const item of listItems) {
+      const tildeCount = (item.innerText.match(/~/g) || []).length;
+      const cleanedList = cleanListItem(item);
+      const wrappedList = wrapUnorderedList(cleanedList, tildeCount);
+
+      newUnorderedList.appendChild(wrappedList);
+    }
+
+    originalUnorderedList.replaceChildren(...newUnorderedList.childNodes);
   }
 
-  originalList.replaceChildren(...unorderedList.childNodes);
+  if (originalOrderedList) {
+    const orderedListItems = originalOrderedList.querySelectorAll('li');
+    let newHtml = '';
+
+    for (const item of orderedListItems) {
+      let lines = item.innerText.split('\n');
+      // remove empty lines
+      lines = lines.filter((line) => line.trim().length > 0);
+
+      newHtml += wrapOrderedList(lines);
+    }
+
+    originalOrderedList.innerHTML = newHtml;
+  }
 });
 
 /**
@@ -30,10 +49,44 @@ function cleanListItem(li: HTMLLIElement) {
  * @param {HTMLElement} li item
  * @param {number} tildeCount number of tildes
  **/
-function wrapList(li: HTMLElement, tildeCount: number): HTMLElement {
+function wrapUnorderedList(li: HTMLElement, tildeCount: number): HTMLElement {
   if (tildeCount === 0) return li;
 
   const uList = document.createElement('ul');
   uList.appendChild(li);
-  return wrapList(uList, tildeCount - 1);
+  return wrapUnorderedList(uList, tildeCount - 1);
+}
+
+/**
+ * Wrap the list item in a <ol> tag, given the numbered list item
+ * @param {string[]} lines an array of strings
+ * @returns {string} html
+ **/
+function wrapOrderedList(lines: string[]): string {
+  let buildString = '';
+  let previousNestingLevel = 0;
+  let numOpenTags = 0;
+
+  for (let line of lines) {
+    // matches a number followed by a dot.
+    const regex = /(\d+\.)+/;
+    const matches = line.trim().match(regex);
+    const firstmatch = matches ? matches[0] : '';
+    const currentNestingLevel = firstmatch.split('.').length - 1;
+
+    line = '<li>' + line.replace(firstmatch, '') + '</li>';
+
+    if (previousNestingLevel === currentNestingLevel) {
+      buildString += line;
+    }
+
+    if (previousNestingLevel < currentNestingLevel) {
+      previousNestingLevel = currentNestingLevel;
+      numOpenTags += 1;
+      buildString += '<ol>' + line;
+    }
+  }
+
+  buildString += '</ol>'.repeat(numOpenTags);
+  return buildString;
 }
