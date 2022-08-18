@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isIntersecting) return;
 
         filterLinks.forEach((link) => {
-          link.classList.remove(ACTIVE_CLASS);
-
           if (link.href === `#${target.id}`) {
             link.classList.add(ACTIVE_CLASS);
+          } else {
+            link.classList.remove(ACTIVE_CLASS);
           }
         });
       });
