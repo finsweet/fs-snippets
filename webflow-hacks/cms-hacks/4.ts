@@ -1,48 +1,32 @@
 // when the DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
-  // declare constants
   const ACTIVE_CLASS = 'hack4-active';
-  // declare the dom elements
-  const filterLinks = document.querySelectorAll<HTMLAnchorElement>('[fs-hacks-element="hack4-filter-button"]');
-  const sections = document.querySelectorAll<HTMLDivElement>('[fs-hacks-element="hack4-cms-anchor-section"]');
+  const FILTER_BUTTON_SELECTOR = '[fs-hacks-element="hack4-filter-button"]';
+  const SECTION_SELECTOR = '[fs-hacks-element="hack4-cms-anchor-section"]';
+  const filterLinks = document.querySelectorAll<HTMLAnchorElement>(FILTER_BUTTON_SELECTOR);
+  const sections = document.querySelectorAll<HTMLDivElement>(SECTION_SELECTOR);
 
-  // check that number of sections and filter Links match
-  if (sections.length !== filterLinks.length) {
-    return;
-  }
+  if (sections.length !== filterLinks.length) return;
 
-  // for each filter Link
   filterLinks.forEach((link, index) => {
-    // get its text content and reformat to a valid ID
     const linkText = link.innerText.replace(/\W/g, '-').toLowerCase();
-    // set the reformatted linkText as the link href attribute
     link.setAttribute('href', '#' + linkText);
-    // set the section is to linkText
     sections[index].setAttribute('id', linkText);
   });
 
   // set up intersection observer to observe when the anchor sections are in the viewport
   const observer = new IntersectionObserver(
     (entries) => {
-      // for each anchor section
       entries.forEach(({ isIntersecting, target }) => {
-        // if it's in the viewport
         if (isIntersecting) {
-          // for each link
           filterLinks.forEach((link) => {
-            // remove the active class from the current active link
             link.classList.remove(ACTIVE_CLASS);
-            // check if current active link href is the target
             if (link.href === `#${target.id}`) {
-              // add the active class to the current active link
               link.classList.add(ACTIVE_CLASS);
             }
           });
         }
       });
-      // setting threshold to 1 ensures the whole anchor section
-      // is in viewport before adding active class to active link
-      // this part ', {threshold: 1}' is optional
     },
     { threshold: 1 }
   );
