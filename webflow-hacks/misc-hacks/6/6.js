@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const WAIT_TIME = 4500;
     const COOKIE_NAME = 'seenGif';
     const LOADING_WRAPPER_SELECTOR = '[fs-hacks-element="loading-wrapper"]';
-    const GIF_SELECTOR = '[fs-hacks-element="gif"]';
     const CLEAR_BUTTON_SELECTOR = '[fs-hacks-element="clear-cookie"]';
     const loadingWrapper = document.querySelector(LOADING_WRAPPER_SELECTOR);
     const clearButton = document.querySelector(CLEAR_BUTTON_SELECTOR);
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (seenGif)
         return;
     loadingWrapper.style.display = 'flex';
-    playGif(GIF_SELECTOR);
     setCokie(COOKIE_NAME, 'true', 1);
     setTimeout(async () => {
         loadingWrapper.style.display = 'none';
@@ -22,17 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
         removeCookie(COOKIE_NAME);
     });
 });
-/**
- * define the playGif function
- * @param {string} gifclass
- **/
-function playGif(gifclass) {
-    // get the gif's class and store it in a variable
-    const gif = document.querySelector(gifclass);
-    if (!gif)
-        return;
-    gif.src = gif.src.replace(/\?.*$/, '') + '?x=' + Math.random();
-}
 /**
  * Set a cookie.
  * @param cname The name of the cookie to set.
