@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const clearButton = document.querySelector<HTMLDivElement>(CLEAR_BUTTON_SELECTOR);
   if (!loadingWrapper || !clearButton) return;
 
-  const seenGif = getCokie(COOKIE_NAME);
-  if (seenGif) return;
+  const hasSeenPreloader = getCokie(COOKIE_NAME);
+  if (hasSeenPreloader) return;
 
   loadingWrapper.style.display = 'flex';
 
